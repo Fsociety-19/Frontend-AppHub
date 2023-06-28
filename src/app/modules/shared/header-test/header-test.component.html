@@ -176,14 +176,12 @@
         <li><a href="">Blog</a></li>
         <li><a>Contactenos</a></li>
         <li>
-          <div class="menu-container">
-            <button class="menu-button">Menú</button>
-            <div class="menu-content">
-              <a href="#">Opción 1</a>
-              <a href="#">Opción 2</a>
-              <a href="#">Opción 3</a>
-            </div>
-          </div>
+          <button mat-button [matMenuTriggerFor]="menu">Menú</button>
+          <mat-menu #menu="matMenu">
+          <button mat-menu-item>Opción 1</button>
+          <button mat-menu-item>Opción 2</button>
+          <button mat-menu-item>Opción 3</button>
+        </mat-menu>
         </li>
         <li *ngIf="checked">
           <button class="btn" type="button" (click)="admin.toggle($event)">

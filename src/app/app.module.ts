@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/shared/header/header.component';
 import { FooterComponent } from './modules/shared/footer/footer.component';
@@ -67,6 +68,7 @@ import { FilterPipe } from './modules/shared/pipes/filter.pipe';
 
 import { HeaderTestComponent } from './modules/shared/header-test/header-test.component';
 import { AdminModule } from './modules/admin/admin.module';
+import { MatMenu } from '@angular/material';
 
 
 @NgModule({
@@ -97,6 +99,7 @@ import { AdminModule } from './modules/admin/admin.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatMenuModule,
     MegaMenuModule,
     ButtonModule,
     CarouselModule,
