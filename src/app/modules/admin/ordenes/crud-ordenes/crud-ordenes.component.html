@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Ordenes de compra</h1>
+  <div class="content-crud">
+    <p-table
+      #dt1
+      [value]="products | filter: filterOrden"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      scrollHeight="500px"
+      ataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [paginator]="true"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              name="filterOrden"
+              [(ngModel)]="filterOrden"
+              placeholder="Search keyword"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" *ngFor="let title of titles">
+        <tr>
+          <th *ngFor="let title of titles">{{ title }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.numero }}</td>
+          <td>{{ product.name }}</td>
+          <td >{{ product.valor }}</td>
+          <td><img src="../../../../assets/edit.png" alt="" routerLink="/orden-detail-admin" /></td>
+          <td>{{ product.estado }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

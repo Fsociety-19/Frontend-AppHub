@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Categorias</h2>
+    <p-carousel
+      [value]="categories"
+      [numVisible]="1"
+      [numScroll]="1"
+      [responsiveOptions]="responsiveOptions"
+      [circular]="true"
+      [autoplayInterval]="3000"
+    >
+      <ng-template let-categories pTemplate="item">
+        <div class="images-categories">
+          <img
+            class="img"
+            style="border-radius: 100px"
+            src="{{categories.image}}"
+            alt=""
+          />
+        </div>
+      </ng-template>
+    </p-carousel>
+</div>

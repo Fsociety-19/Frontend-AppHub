@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="filter-category">
+    <div class="container-categories">
+      <span class="subtitle">Estas Comprando Para</span>
+      <p-selectButton (onChange)="changeProducts()" [options]="tab" [(ngModel)]="categoriesSelect" optionLabel="name" optionValue="code">
+        <ng-template let-category class="category-button" pTemplate="content">
+          <img class="image-cateorgy" alt="logo" [src]="category.icon"/>
+          <span class="category-name">{{category.name}}</span>
+        </ng-template>
+      </p-selectButton>
+      <span class="title-filter">Accesorios</span>
+      <p-listbox [options]="category" [(ngModel)]="categorySelect" optionLabel="name"></p-listbox>
+    </div>
+  </div>
+  <div class="card">
+    <p-dataView
+      #dv
+      [value]="products"
+      [paginator]="true"
+      [rows]="9"
+      filterBy="name"
+      [sortField]="sortField"
+      [sortOrder]="sortOrder"
+      layout="grid">
+      <ng-template pTemplate="header">
+        <div style="display: flex; justify-content: end;">
+          <p-dropdown class="filtro" [options]="subcategories" [(ngModel)]="subcategoriesSelect" optionLabel="name" optionValue="code"></p-dropdown>
+        </div>
+        </ng-template>
+      <ng-template let-product pTemplate="gridItem">
+      <div class="p-col-12 p-md-4 container-card">
+        <div class="product-grid-item card">
+          <div [routerLink]="'detail/'+product.id"  class="product-grid-item-top">
+            <div class="contaienr-image">
+              <img class="products-image" [src]="product.image" alt="">
+            </div>
+            <span class="products-name">{{product.name}}</span>
+          </div>
+          <p-rating [ngModel]="3" [readonly]="true" [cancel]="false"></p-rating>
+          <div class="content-properties">
+            <p-selectButton [options]="weight" [(ngModel)]="selectWeight" optionLabel="name"></p-selectButton>
+            <p-inputNumber class="increment-decrement" [(ngModel)]="val" [step]="1.0" [showButtons]="true" mode="decimal" [min]="0" [max]="100" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+          </div>
+          <div class="product-grid-item-content">
+            <span class="product-price">$27.000</span>
+          </div>
+          <div class="add-to-cart">
+            <button style="width: 100%; background-color: #9AAC18; border-color: #9AAC18; color: white Impo !important;" pButton type="button" label="Añadir al carrito"></button>
+          </div>
+        </div>
+      </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>
+

@@ -1,0 +1,72 @@
+<p-toast></p-toast>
+<div class="container">
+  <div class="col container-images">
+    <p-galleria
+      [value]="product && product.images"
+      [responsiveOptions]="responsiveOptions"
+      [numVisible]="5"
+    >
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.url" style="width: 100%; display: block" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+          <img
+            [src]="item.url"
+            style="width: 100px; height: auto; visibility: initial"
+          />
+        </div>
+      </ng-template>
+    </p-galleria>
+  </div>
+  <div class="container-info">
+    <span class="products-name">{{ name }}</span>
+    <div class="product-grid-item-content">
+      <p-rating [ngModel]="3" [readonly]="true" [cancel]="false"></p-rating>
+      <span class="product-price">${{product && product.pSelect.price1 | number : "1.0-0"}}</span>
+    </div>
+    <div class="container-properties">
+        <div class="select_presentation">
+          <span *ngFor="let pres of product && product.presentations" class="select">
+            <input
+            type="radio"
+            hidden
+            [(ngModel)]="product.pSelect"
+            [value]="pres"
+            name="'presentation' + pres.code"
+            [id]="'id' + pres.code"
+            />
+            <label [for]="'id' + pres.code" [ngClass]="{checked: product.pSelect.code === pres.code}">{{ pres.name }}</label>
+          </span>
+        </div>
+      <p-inputNumber
+        class="increment-decrement"
+        [(ngModel)]="product && product.val"
+        [step]="1.0"
+        [showButtons]="true"
+        mode="decimal"
+        [min]="1"
+        [max]="100"
+        buttonLayout="horizontal"
+        inputId="horizontal"
+        spinnerMode="horizontal"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+      ></p-inputNumber>
+    </div>
+    <div class="properties">
+      <div class="info mb-2">
+        <span style="font-size: 1.4rem">{{ desc }}</span>
+      </div>
+      <div class="add-to-cart">
+        <button
+          style="width: 100%; height: 3rem"
+          pButton
+          type="button"
+          label="Añadir al carrito"
+          (click)="addToCart()"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

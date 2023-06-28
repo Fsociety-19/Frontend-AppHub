@@ -1,0 +1,551 @@
+.fixed {
+  height: auto;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+}
+
+.header {
+  background: #1a2537;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container_1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 78%;
+  z-index: 10;
+  box-sizing: border-box;
+  gap: 10px;
+  padding: 10px;
+}
+
+.container-menu {
+  width: 80%;
+  display: flex;
+  justify-content: start;
+}
+
+.container-menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.container-menu ul li {
+  margin: 0 20px;
+}
+
+.container-menu ul li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon-search {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+}
+
+.my-account p {
+  margin-left: 40px;
+}
+
+.user-icon {
+  background: #f9bf1b;
+  padding: 16px;
+  border-radius: 30px;
+}
+
+.content-actions-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.content-actions-user p {
+  font-size: 20px;
+}
+
+.separador {
+  border-left: 1px solid white;
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+}
+
+.my-cart {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.content-options ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.content-options ul li {
+  padding: 3px 25px;
+}
+.content-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+
+
+.button {
+  background-color: #e6b404;
+  border: none;
+}
+.button:hover {
+  background-color: #c39900;
+  border: none;
+}
+
+:host ::ng-deep .p-button-label {
+  font-weight: 400;
+  color: black !important;
+}
+
+.content-img {
+  width: 120px;
+  height: auto;
+}
+
+.content-img img {
+  vertical-align: middle;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Dropdown login header ------------- */
+.dropDown-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+}
+
+.dropDown-user span,
+h3 {
+  margin: 10px 0px 20px 0px;
+}
+
+.dropDown-user button {
+  width: 100%;
+  background-color: #aeb422;
+  border: none;
+}
+
+.dropDown-user button:hover {
+  background-color: #616408;
+  border: none;
+}
+.dropDown-user p {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+:host::ng-deep .p-ripple {
+  display: none;
+}
+
+:host::ng-deep .pi-spin {
+  display: none;
+}
+
+.btn,
+.btn:hover {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-desp {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.btn-desp:hover {
+  background-color: #f1f1f1;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+.user-container {
+  text-align: center;
+}
+
+.acount {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-img {
+  width: 48px;
+  border-radius: 50%;
+  border: 3px solid #c39900;
+}
+
+.optionsUser {
+  display: flex;
+  flex-direction: column;
+}
+
+:host::ng-deep .logout .p-button {
+  border-radius: 30px;
+  background-color: #aeb422;
+  border: none;
+  outline: none;
+}
+
+:host::ng-deep .logout .p-button:hover {
+  background-color: #616408;
+}
+
+.my-cart i {
+  padding: 0;
+}
+.my-cart .my-cart-icon{
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+}
+
+.dropMenuBrands,
+.dropMenucategories {
+  transition: 0.5s;
+}
+
+.brandIcon,
+.categorieIcon {
+  transition: 0.5s;
+}
+
+:host::ng-deep .p-sidebar {
+  display: none;
+}
+
+.searchBar {
+  display: none;
+}
+
+/* resultados */
+#autocomplete-list {
+  list-style-type: none;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+}
+#autocomplete-list li {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+#autocomplete-list li:hover {
+  background-color: #e9e9e9;
+}
+
+
+.dropCuenta ul li {
+  color: #fff;
+}
+
+.autoCompleteList {
+  padding: 20px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 10px;
+  max-height: 40vh;
+  z-index: 11;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.autoCompleteList .lista {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.autoCompleteList .lista:hover {
+  background-color: #dadada;
+  cursor: pointer;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: transparent;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header-top {
+  display: flex;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid hsl(0, 0%, 93%);
+  background-color: #f2a413;
+  align-items: flex-start;
+  /* align-content: stretch; */
+  flex-direction: column;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.header-top__container {
+  width: 80%;
+  align-self: center;
+  display: flex;
+  height: 32px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 55px;
+}
+
+.header-top-news::before {
+  content: "| ";
+}
+.header-top-news img {
+  padding-right: 10px;
+}
+.header-top-news,
+.header-top-contact p {
+  color: #1a2537;
+  font-weight: bold;
+}
+
+.header-top-news img,
+p {
+  display: inline-block;
+}
+/* Responsive vista celular */
+@media screen and (max-width: 1024px) {
+  /* Container principal  */
+  .container_1 {
+    padding: 20px 10px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  :host::ng-deep .p-sidebar {
+    display: block;
+  }
+
+  .searchBar {
+    display: none;
+  }
+
+  .my-account,
+  .container-search,
+  .separador,
+  .container-menu,
+  .content-actions-user {
+    display: none;
+  }
+
+.my-account-dropdown{
+  display: none;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  /* imagen del logo */
+  .content-img img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    flex-direction: row;
+  }
+
+  ul {
+    padding-bottom: 10px;
+    flex-direction: column;
+    background-color: #1a2537;
+    list-style: none;
+  }
+  ul li {
+    margin: 10px;
+  }
+
+  ul li a{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  :host::ng-deep .p-sidebar-sm {
+    background-color: #1a2537;
+  }
+
+  :host::ng-deep .p-sidebar-sm .p-sidebar-header .p-ripple {
+    background-color: white;
+  }
+
+  :host::ng-deep .userBtn {
+    background-color: #aeb422;
+    border: none;
+    border-radius: 50px;
+    margin: 0px 5px;
+  }
+
+  :host::ng-deep .userBtn:hover {
+    background-color: #616408;
+    border: none;
+  }
+
+  :host::ng-deep .bars .p-button-icon {
+    color: white;
+  }
+
+  :host::ng-deep .p-ripple {
+    background-color: transparent;
+    border: none;
+    display: flex;
+  }
+
+  .logout {
+    display: none;
+  }
+
+  .searchBarRes {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  .autoCompleteList {
+    position: relative !important;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .searchBar {
+    width: 100%;
+    display: block;
+    max-width: 600px;
+  }
+
+  .my-cart {
+    display: inherit;
+  }
+
+  .searchBar span {
+    width: 100%;
+  }
+
+  .container-menu {
+    display: flex !important;
+  }
+
+  .autoCompleteList {
+    width: 600px !important;
+  }
+
+
+  li {
+    text-decoration: none;
+    list-style: none;
+  }
+}
+
+@media  screen and (min-width: 992px) {
+  .autoCompleteList {
+    width: 527.69px;
+  }
+}
+@media  screen and (max-width: 992px) {
+  .header-top{
+    display: none;
+  }
+}
+@media (min-width: 570px) {
+}

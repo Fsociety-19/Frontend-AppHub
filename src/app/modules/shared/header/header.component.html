@@ -1,0 +1,227 @@
+<div class="container">
+  <div routerLink="" class="content-img">
+    <img src="./../../../../assets/Logo_MA-07.png" alt="" />
+  </div>
+  <div class="searchBar">
+    <span class="p-fluid">
+      <p-autoComplete
+        [showTransitionOptions]="'100ms'"
+        [hideTransitionOptions]="'100ms'"
+        [(ngModel)]="selectProduct"
+        [suggestions]="results"
+        (completeMethod)="filterCountry($event)"
+        field="name"
+        [multiple]="true"
+        (onSelect)="select($event)"
+      >
+      </p-autoComplete>
+    </span>
+  </div>
+  <div class="content-options">
+    <div class="content-button">
+      <!-- Acount buttons  -->
+      <div class="content-actions-user" *ngIf="!checked; else onlogin">
+        <div class="my-account">
+          <p
+            type="text"
+            style="color: white; font-family: 'Nunito'; cursor: pointer"
+            routerLink="login"
+          >
+          Ingresar
+          </p>
+        </div>
+        <!-- separador -->
+        <div class="separador"></div>
+        <!-- --------------- -->
+        <!-- Register content -->
+        <p
+          type="text"
+          style="
+            color: white;
+            font-family: 'Nunito';
+            cursor: pointer;
+            margin-right: 40px;
+          "
+          routerLink="/sign-in"
+        >
+          Registrarse
+        </p>
+      </div>
+
+      <ng-template #onlogin>
+        <div class="logout">
+          <button
+            pButton
+            label="Cerrar sesion"
+            type="button"
+            (click)="logOut()"
+          ></button>
+          <img class="user-img" src="../../../../assets/huella.png" alt="" />
+        </div>
+      </ng-template>
+
+      <div class="my-cart">
+        <i
+          style="color: #aeb422; cursor: pointer"
+          class="pi pi-shopping-cart cart-icon"
+          [routerLink]="['cart/']"
+        ></i>
+      </div>
+      <!-- bar menu -->
+      <p-button
+        type="text"
+        (click)="display = true"
+        icon="pi pi-bars"
+        class="bars"
+      ></p-button>
+    </div>
+  </div>
+</div>
+
+<!-- **-----------------------------**---------------------**--------------------------------- -->
+<p-sidebar [(visible)]="display" styleClass="p-sidebar-sm" position="right">
+  <ng-template pTemplate="content">
+    <div class="acount" *ngIf="checked">
+      <img class="user-img" src="../../../../assets/huella.png" alt="" />
+    </div>
+    <ul>
+      <li>
+        <a (click)="dropMarcas()"
+          >Marcas
+          <i class="pi pi-angle-down" style="color: white" id="brandIcon"></i
+        ></a>
+      </li>
+      <div class="dropMenuBrands" *ngIf="checkDropMarcas">
+        <ul>
+          <li *ngFor="let brand of marcas">
+            <a href="">{{ brand.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <li>
+        <a (click)="dropCategorias()"
+          >Categorias
+          <i
+            class="pi pi-angle-down"
+            style="color: white"
+            id="categorieIcon"
+            id="categorieIcon"
+          ></i
+        ></a>
+      </li>
+      <div class="dropMenucategories" *ngIf="checkDropcategporias">
+        <ul>
+          <li *ngFor="let category of categories">
+            <a>{{ category.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <li><a href="">Servicios</a></li>
+      <li><a href="">Contactenos</a></li>
+      <li><a href="">Promociones</a></li>
+      <li><a href="">Blog</a></li>
+      <li><a href="">Contactenos</a></li>
+    </ul>
+    <div class="user-container" *ngIf="!checked; else Login">
+      <button
+        pButton
+        label="Iniciar sesion"
+        class="userBtn"
+        routerLink="login"
+      ></button>
+      <button
+        pButton
+        label="Registrarse"
+        class="userBtn"
+        routerLink="sign-in"
+      ></button>
+    </div>
+    <ng-template #Login>
+      <div class="user-container">
+        <button
+          pButton
+          label="Cerrar sesion"
+          class="userBtn"
+          (click)="logOut()"
+        ></button>
+      </div>
+    </ng-template>
+  </ng-template>
+</p-sidebar>
+
+<!-- **----------------------------****-------------------------------- -->
+<div class="container-menu">
+  <p-overlayPanel #brands [dismissable]="true">
+    <ng-template pTemplate>
+      <div *ngFor="let brand of marcas">
+        <button
+          class="btn-desp"
+          type="button"
+          [routerLink]="['products']"
+          [queryParams]="{ brand: brand.id }"
+        >
+          {{ brand.name }}
+        </button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+  <p-overlayPanel #category [dismissable]="true">
+    <ng-template pTemplate>
+      <div *ngFor="let category of categories">
+        <button
+          class="btn-desp"
+          type="button"
+          [routerLink]="['products']"
+          [queryParams]="{ category: category.id }"
+        >
+          {{ category.name }}
+        </button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+  <p-overlayPanel #admin [dismissable]="true">
+    <ng-template pTemplate>
+      <div>
+        <button class="btn-desp" type="button" [routerLink]="['crud-products']">
+          Productos
+        </button>
+        <button
+          class="btn-desp"
+          type="button"
+          [routerLink]="['crud-categories']"
+        >
+          Categorias
+        </button>
+        <button class="btn-desp" type="button" [routerLink]="['crud-clients']">
+          Clientes
+        </button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+  <ul>
+    <li>
+      <button class="btn" type="button" (click)="brands.toggle($event)">
+        Marcas <i class="pi pi-angle-down" style="color: white"></i>
+      </button>
+    </li>
+    <li>
+      <button class="btn" type="button" (click)="category.toggle($event)">
+        Categorias <i class="pi pi-angle-down" style="color: white"></i>
+      </button>
+    </li>
+    <li><a href="">Servicios</a></li>
+    <li><a href="">Contactenos</a></li>
+    <li><a href="">Promociones</a></li>
+    <li><a href="">Blog</a></li>
+    <li><a>Contactenos</a></li>
+    <li>
+      <button class="btn" type="button" (click)="admin.toggle($event)">
+        Admin <i class="pi pi-angle-down" style="color: white"></i>
+      </button>
+    </li>
+  </ul>
+  <!-- <p-megaMenu
+    orientation="horizontal"
+    [model]="items"
+  ></p-megaMenu> -->
+</div>

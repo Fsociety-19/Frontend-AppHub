@@ -1,0 +1,56 @@
+/* Container */
+.container{
+  display: flex;
+  width: 100vw;
+  height: 84.9vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container::before{
+  filter: blur(2px);
+  content: "";
+  position: absolute;
+  background-image: url("../../../assets/carousel/pexels-mikkel-bendix-9789471.jpg");
+  width: 100vw;
+  height: 84vh;
+  filter: blur(6px);
+  object-fit: cover;
+}
+
+/* box login */
+.box-sign-up{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #1A2537;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+h2{
+  color: white;
+  margin-bottom: 25px;
+}
+
+span{
+  margin-bottom: 25px;
+}
+
+input{
+  width: 260px;
+}
+
+button{
+  background-color: #AEB422;
+  border: none;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.btnsignup:hover{
+  background-color: #F2950E;
+  border: none;
+}

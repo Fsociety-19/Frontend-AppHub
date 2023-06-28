@@ -1,0 +1,248 @@
+<div class="container">
+  <p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [baseZIndex]="10000"
+    rejectButtonStyleClass="p-button-text"
+  ></p-confirmDialog>
+  <!-- Categorias -->
+  <div class="content-crud">
+    <h1>Categorias</h1>
+    <p-table
+      #dt1
+      [value]="categorias | filter : filterCategories"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      scrollHeight="500px"
+      ataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [paginator]="true"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              name="filterCategories"
+              [(ngModel)]="filterCategories"
+              placeholder="Search keyword"
+            />
+          </span>
+          <!-- Boton Nuevo! -->
+          <button
+            pButton
+            icon="pi pi-plus-circle"
+            [routerLink]="'edit-category/' + 'new'"
+          ></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" *ngFor="let title of titles">
+        <tr>
+          <th *ngFor="let title of titles">{{ title }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.name }}</td>
+          <td><img class="imageCrud" [src]="product.image" alt=""></td>
+          <td>
+            <img
+              src="../../../../assets/edit.png"
+              [routerLink]="'edit-category/' + product.id"
+            />
+          </td>
+          <td>
+            <img
+              src="../../../../assets/delete.png"
+              (click)="deleteCategory(product.id)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <!-- Subcategorias -->
+  <div class="content-crud">
+    <h1>Sub Categorias</h1>
+    <p-table
+      #dt1
+      [value]="subCategorias | filter : filterSubcategories"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      scrollHeight="500px"
+      ataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [paginator]="true"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              name="filterSubcategories"
+              [(ngModel)]="filterSubcategories"
+              placeholder="Search keyword"
+            />
+          </span>
+          <!-- Boton Nuevo! -->
+          <button
+            pButton
+            icon="pi pi-plus-circle"
+            [routerLink]="'edit-subcategory/' + 'new'"
+          ></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" *ngFor="let title of titlesSubcategoria">
+        <tr>
+          <th *ngFor="let title of titlesSubcategoria">{{ title }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.categorieId }}</td>
+          <td>{{ product.name }}</td>
+          <td><img class="imageCrud" [src]="product.image" alt=""></td>
+          <td>
+            <img
+              src="../../../../assets/edit.png"
+              alt=""
+              [routerLink]="'edit-subcategory/' + product.id"
+            />
+          </td>
+          <td>
+            <img
+              src="../../../../assets/delete.png"
+              (click)="deleteSubcategory(product.id)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <!-- Clasificacion -->
+  <div class="content-crud">
+    <h1>Clasificacion</h1>
+    <p-table
+      #dt1
+      [value]="clasificaciones | filter : filterClasifications"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      scrollHeight="500px"
+      ataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [paginator]="true"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              name="filterClasifications"
+              [(ngModel)]="filterClasifications"
+              placeholder="Search keyword"
+            />
+          </span>
+          <!-- Boton Nuevo! -->
+          <button
+            pButton
+            icon="pi pi-plus-circle"
+            [routerLink]="'edit-clasification/' + 'new'"
+          ></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" *ngFor="let title of titlesclasificacion">
+        <tr>
+          <th *ngFor="let title of titlesclasificacion">{{ title }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.subCategorieId }}</td>
+          <td>{{ product.name }}</td>
+          <td><img class="imageCrud" [src]="product.image" alt=""></td>
+          <td>
+            <img
+              src="../../../../assets/edit.png"
+              alt=""
+              [routerLink]="'edit-clasification/' + product.id"
+            />
+          </td>
+          <td>
+            <img
+              src="../../../../assets/delete.png"
+              (click)="deleteClasification(product.id)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <!-- Marcas -->
+  <div class="content-crud">
+    <h1>Marcas</h1>
+    <p-table
+      #dt1
+      [value]="marcas | filter : filterBrands"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      scrollHeight="500px"
+      ataKey="id"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [paginator]="true"
+      responsiveLayout="scroll"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              name="filterBrands"
+              [(ngModel)]="filterBrands"
+              placeholder="Search keyword"
+            />
+          </span>
+          <!-- Boton Nuevo! -->
+          <button
+            pButton
+            icon="pi pi-plus-circle"
+            [routerLink]="'edit-brands/' + 'new'"
+          ></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" *ngFor="let title of titlesMarcas">
+        <tr>
+          <th *ngFor="let title of titlesMarcas">{{ title }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.name }}</td>
+          <td><img class="imageCrud" [src]="product.image" alt=""></td>
+          <td>
+            <img
+              src="../../../../assets/edit.png"
+              alt=""
+              [routerLink]="'edit-brands/' + product.id"
+            />
+          </td>
+          <td>
+            <img
+              src="../../../../assets/delete.png"
+              (click)="deleteBrand(product.id)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

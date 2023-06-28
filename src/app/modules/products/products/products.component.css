@@ -1,0 +1,370 @@
+
+
+:host ::ng-deep .p-dataview-content .p-grid.p-nogutter.grid.grid-nogutter{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  justify-items: center;
+  gap: 10px;
+}
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+  font-weight: normal;
+}
+
+:host ::ng-deep .product-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+:host ::ng-deep .product-description {
+  margin: 0 0 1rem 0;
+}
+
+:host ::ng-deep .product-category-icon {
+  vertical-align: middle;
+  margin-right: .5rem;
+}
+
+:host ::ng-deep .product-category {
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .p-dataview .p-dataview-header{
+  background-color: transparent;
+  border: none;
+}
+
+:host ::ng-deep .product-list-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+}
+:host ::ng-deep .product-list-item img {
+  width: 150px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-right: 2rem;
+}
+
+:host ::ng-deep .product-list-item .product-list-detail {
+  flex: 1 1 0;
+}
+
+:host ::ng-deep .product-list-item .p-rating {
+  margin: 0 0 .5rem 0;
+}
+
+:host ::ng-deep .p-rating .p-rating-icon.pi-star-fill {
+  color: #F9BF1C;
+}
+
+:host ::ng-deep .product-list-item .product-price {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  align-self: flex-end;
+}
+
+:host ::ng-deep .product-list-item .product-list-action {
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .product-list-item .p-button {
+  margin-bottom: .5rem;
+}
+
+:host ::ng-deep .p-inputnumber-input{
+  width: 3.5rem;
+}
+
+:host ::ng-deep .product-grid-item-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+:host ::ng-deep .social-icon{
+  color: white;
+  position: absolute;
+  right: 2rem;
+  top: 2.6rem;
+  font-size: 2.2rem;
+  background: #25d366;
+  border-radius: 25px;
+}
+
+:host ::ng-deep .p-ripple.p-element.p-button.p-component{
+  padding: 5px;
+  border-radius: 5px;
+  border-color: #b3b3b3;
+  border-right: 1px solid #b3b3b3 !important;
+}
+
+:host::ng-deep .select_presentation .p-component {
+  display: flex;
+  gap: 5px;
+  width: 300px;
+}
+
+:host::ng-deep .categorieButtons .p-selectbutton{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filtros{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+:host ::ng-deep .increment-decrement .p-inputnumber.p-component.p-inputnumber-buttons-horizontal{
+  height: 36px;
+  border: 0.14rem solid #cccc;
+  border-radius: 7px;
+}
+
+:host ::ng-deep .content-properties button:hover{
+  background-color: #E9ECEF;
+}
+
+.product-grid-item {
+  margin: .5em;
+}
+.product-grid-item .product-grid-item-top,
+.product-grid-item .product-grid-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-grid-item img {
+  width: 75%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 2rem 0;
+}
+
+.product-grid-item .product-grid-item-content {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+
+.product-grid-item .product-price {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-right: 7px;
+
+}
+
+.product-price{
+  font-size: 23px !important;
+}
+
+.select_presentation{
+  display: flex;
+  justify-content: start;
+  padding: 5px 0;
+}
+
+.container{
+  padding: 0 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 100%;
+  margin: 0 !important;
+  border: 0;
+  width: 100%;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card i{
+  margin-right: -24px;
+}
+
+.contaienr-image, .contaienr-image img{
+  width: 100%;
+}
+
+:host ::ng-deep .p-rating.p-readonly{
+  padding: 6px 0px 6px 0px;
+}
+
+.content-properties{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  display: flex;
+  align-items: start;
+}
+
+.add-to-cart{
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep .add-to-cart button{
+  height: 2.2rem;
+}
+
+:host ::ng-deep .add-to-cart .p-button-label{
+  color: white;
+}
+
+:host ::ng-deep .image-cateorgy{
+  height: 40px;
+  width: 50px;
+}
+
+:host ::ng-deep .container-categories{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+}
+
+.products-image{
+  margin: 2rem 0px 0.7rem 0 !important;
+}
+
+.products-name{
+  text-align: start;
+}
+
+:host ::ng-deep .container-categories .subtitle{
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+:host ::ng-deep .container-categories div.p-button.p-component {
+ width: 155px;
+}
+
+:host ::ng-deep  .p-selectbutton .p-button.p-highlight{
+  background-color: #9AAC18;
+}
+
+:host ::ng-deep  .p-selectbutton .p-button-label{
+  font-size: 13px;
+}
+
+.subcategory{
+  padding-left: 1rem;
+}
+
+.category-name{
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+:host ::ng-deep  .increment-decrement button, :host ::ng-deep .increment-decrement input{
+  background: transparent;
+  border: 0px;
+  padding: 0;
+  width: 25px;
+  text-align: center;
+  height: 32px;
+}
+
+:host ::ng-deep  .p-button-icon.pi.pi-minus{
+  font-size: 11px;
+}
+
+.container-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+}
+
+
+/* select presentacion */
+.select_presentation{
+  display: flex;
+  gap: 5px;
+  width: 300px;
+  overflow-x: auto;
+}
+
+.select_presentation::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+  background-color: #f1f1f1;
+}
+
+.select_presentation::-webkit-scrollbar-thumb{
+  width: 5px;
+  height: 5px;
+  background-color: #aeb422;
+  border-radius: 20px;
+}
+
+.select label{
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 3px 5px;
+  border: 1px solid #1a253794;
+  color: #1a2537;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.select input:checked + label, .checked{
+  background-color: #aeb422;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+
+
+/* diseño responsive para mobil */
+@media only screen and (min-width: 360px) and (max-width: 720px){
+  :host ::ng-deep .product-list-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  :host ::ng-deep .product-list-item img {
+    width: 75%;
+    margin: 2rem 0;
+  }
+
+  :host ::ng-deep .product-list-item .product-list-detail {
+    text-align: center;
+  }
+
+  :host ::ng-deep .product-list-item .product-price {
+    align-self: center;
+  }
+
+  :host ::ng-deep .product-list-item .product-list-action {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :host ::ng-deep .product-list-item .product-list-action {
+    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+
+ .select_presentation{
+  height: auto;
+ }
+
+}

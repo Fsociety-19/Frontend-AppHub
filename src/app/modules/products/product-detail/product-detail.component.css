@@ -1,0 +1,194 @@
+.container{
+  padding: 70px 100px;
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+.container-images img{
+  width: 80%;
+}
+
+.container-info{
+  margin: 0px 60px;
+}
+
+.products-name{
+  font-size: 1.6rem;
+}
+
+.add-to-cart{
+  display: flex;
+  justify-content: center;
+}
+
+.product-price{
+  font-size: 4rem;
+  padding-bottom: 20px;
+}
+
+.container-properties{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .container-properties .p-button{
+  background-color: transparent;
+  border-color: #ccc;
+}
+
+:host ::ng-deep .p-rating .p-readonly{
+  text-align: end;
+  padding: 15px 0;
+}
+
+:host ::ng-deep .p-inputnumber-input, :host ::ng-deep .p-inputnumber-button{
+  width: 40px;
+}
+
+
+:host ::ng-deep .p-inputnumber.p-component.p-inputnumber-buttons-horizontal{
+  height: 40px;
+}
+
+:host ::ng-deep .p-galleria-thumbnail-item{
+  margin-right: 10px;
+}
+
+:host ::ng-deep .p-galleria-thumbnail-prev, :host ::ng-deep .p-galleria-thumbnail-next{
+  display: none;
+}
+
+:host ::ng-deep .p-galleria-thumbnail-items{
+  justify-content: start;
+}
+
+:host ::ng-deep .p-galleria .p-galleria-thumbnail-container{
+  background-color: transparent;
+}
+
+
+:host ::ng-deep .p-ripple.p-element.p-button.p-component{
+  padding: 9px;
+  border-radius: 5px;
+  border-color: #b3b3b3;
+  border-right: 1px solid #b3b3b3 !important;
+}
+
+:host ::ng-deep .p-inputnumber.p-component.p-inputnumber-buttons-horizontal{
+  height: 40px;
+}
+
+.properties{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.description{
+  padding: 40px 0;
+}
+
+.add-to-cart{
+  width: 100%;
+  align-items: end;
+}
+
+:host::ng-deep .add-to-cart .p-button{
+  font-size: 1.5rem;
+  background-color: #9AAC18;
+  border: 0;
+}
+
+:host::ng-deep .add-to-cart .p-button-label{
+  color: #fff;
+}
+
+:host::ng-deep .select .p-component{
+  display: flex;
+  gap: 10px;
+}
+
+:host ::ng-deep  .p-selectbutton .p-button.p-highlight{
+  background-color: #9AAC18;
+}
+
+:host::ng-deep .pi-star-fill:before{
+  color: #F1D63D;
+}
+
+/* select presentacion */
+.select_presentation{
+  display: flex;
+  gap: 5px;
+  width: 300px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.select_presentation::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+  background-color: #f1f1f1;
+}
+
+.select_presentation::-webkit-scrollbar-thumb{
+  width: 5px;
+  height: 5px;
+  background-color: #aeb422;
+  border-radius: 20px;
+}
+
+.select label{
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 3px 5px;
+  border: 1px solid #1a253794;
+  color: #1a2537;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.select input:checked + label, .checked{
+  background-color: #aeb422;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+:host::ng-deep .p-button .p-button-label{
+  white-space: nowrap;
+}
+
+
+@media only screen and (min-width: 360px) and (max-width: 720px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .container-info{
+    margin: 0 10px;
+  }
+
+  .properties{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .add-to-cart{
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .info{
+    text-align: center;
+  }
+}

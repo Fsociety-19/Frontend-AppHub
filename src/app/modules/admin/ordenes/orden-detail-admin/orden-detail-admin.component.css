@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  width: 100vw;
+  height: calc(100vh - 103.6px);
+}
+
+.content {
+  padding: 20px 10px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.content > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+/*metodo de pago */
+.metodo-pago{
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+/* Descripocion producto */
+.dato-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dato-content h3 {
+  width: 30%;
+  text-align: end;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  color: #b3b3b3;
+}
+
+h3{
+  color: #616408;
+}
+
+.pedido {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+}
+
+.datos {
+  margin-left: 5px;
+}
+
+.img {
+  width: 30%;
+}
+
+.img img {
+  width: 100%;
+}
+
+.tarifa-entrega {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* total */
+.total {
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+.btn-comprar {
+  background-color: #b3b3b3 !important;
+  border-radius: 0 !important;
+}
+
+.p-button {
+  width: 100%;
+  background-color: #aeb422;
+  border: none;
+}
+
+.p-button:hover {
+  background-color: #616408;
+}
+
+hr {
+  margin: 5px 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .content {
+    width: 40%;
+  }
+}

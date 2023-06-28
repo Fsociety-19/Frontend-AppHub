@@ -1,0 +1,66 @@
+<!-- Cntainer orden -->
+<div class="Contenedor">
+  <p-toast></p-toast>
+  <!-- Container boxes-->
+  <div class="content">
+    <!-- Direccion -->
+    <div class="direccion">
+      <input
+        type="text"
+        pInputText
+        placeholder="Agregar direccion de entrega*"
+        style="width: 100%"
+        [(ngModel)]="direccion"
+      />
+    </div>
+    <!-- Metodo de pago -->
+    <div class="metodo-pago">
+      <span>
+        <h5>Metodo de pago</h5>
+      </span>
+      <span>
+        <p-dropdown
+          [options]="payMethods"
+          [(ngModel)]="pay"
+          optionLabel="name"
+          optionValue="id"
+        ></p-dropdown>
+      </span>
+    </div>
+    <!-- Datos de la orden -->
+    <div class="datos-orden">
+      <div class="datos-pedido" *ngFor="let product of items; let i = index">
+        <div class="dato-content">
+          <div class="pedido">
+            <div class="img">
+              <img [src]="product.image" alt="i" />
+            </div>
+            <div class="datos">
+              <h5 class="name">{{ product.name }}</h5>
+              <p>{{ product.pSelect.name }}</p>
+              <p>{{ product.val }} Unidad(es)</p>
+            </div>
+          </div>
+          <h4>${{ product.pSelect.price1 * product.val | number : "1.0-0" }}</h4>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="tarifa-entrega">
+      <p>Total sin entrega</p>
+      <h4>${{total - entrega | number: "1.0-0"}}</h4>
+    </div>
+    <div class="tarifa-entrega">
+      <p>Tarifa entrega</p>
+      <h4>${{entrega | number: "1.0-0"}}</h4>
+    </div>
+    <!-- Total -->
+    <div class="total">
+      <h5>Total + Entrega</h5>
+      <h4>${{ total | number : "1.0-0" }}</h4>
+    </div>
+    <div class="button">
+      <button pButton label="Pagar" [disabled]="!direccion" (click)="handlePurchase()" ></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,327 @@
+<div class="fixed">
+  <header class="header">
+    <div class="container_1">
+      <div routerLink="" class="content-img">
+        <img src="./../../../../assets/Logo_MA-07.png" alt="" />
+      </div>
+      <div class="searchBar">
+        <span class="p-input-icon-left buscar">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            style="width: 100%; max-width: 600px; border-radius: 20px"
+            placeholder="Buscar..."
+            [(ngModel)]="searchValue"
+            (focus)="onInputFocus()"
+            (blur)="onInputBlur()"
+            pInputText
+            #searchI
+          />
+        </span>
+        <ul *ngIf="isInputFocused" class="autoCompleteList">
+          <div
+            class="lista"
+            *ngFor="let result of results"
+            (click)="producto(result.id)"
+          >
+            <img [src]="result.image" style="width: 40px" alt="" />
+            <p>{{ result.name }}</p>
+          </div>
+          <div style="width: 100%; display: flex; justify-content: center">
+            <div class="spinner" *ngIf="isLoading"></div>
+          </div>
+          <p *ngIf="messageError">No hay coincidencias</p>
+        </ul>
+      </div>
+      <div class="content-options">
+        <div class="content-button">
+          <!-- Acount buttons  -->
+          <div class="content-actions-user" *ngIf="!checked; else onlogin">
+            <div class="my-account">
+              <p
+                type="text"
+                style="color: white; font-family: 'Nunito'; cursor: pointer"
+                routerLink="login"
+              >
+                Ingresar
+              </p>
+            </div>
+            <!-- separador -->
+            <div class="separador"></div>
+            <!-- --------------- -->
+            <!-- Register content -->
+            <p
+              type="text"
+              style="
+                color: white;
+                font-family: 'Nunito';
+                cursor: pointer;
+                margin-right: 40px;
+              "
+              routerLink="/sign-in"
+            >
+              Registrarse
+            </p>
+          </div>
+
+          <ng-template #onlogin>
+            <div class="logout">
+              <p-overlayPanel #op>
+                <div class="optionsUser">
+                  <button class="btn-desp" type="button">Actualizar datos</button>
+                  <button class="btn-desp" type="button">
+                    Cambiar contraseña
+                  </button>
+                  <button class="btn-desp" type="button" (click)="logOut()">
+                    Cerrar sesion
+                  </button>
+                </div>
+              </p-overlayPanel>
+              <button type="button" class="btn" (click)="op.toggle($event)">
+                Tu cuenta<i class="pi pi-angle-down" style="color: white"></i>
+              </button>
+              <img class="user-img" src="../../../../assets/huella.png" alt="" />
+            </div>
+          </ng-template>
+
+          <div class="my-cart">
+            <a type="button" [routerLink]="['cart/']">
+                <span class="my-cart-icon">
+                  <img src="./../../../../assets/nav/cart.svg" alt="">
+                </span>
+            </a>
+          </div>
+          <!-- bar menu -->
+          <p-button
+          type="text"
+          (click)="display = true"
+          icon="pi pi-bars"
+          class="bars"
+        ></p-button>
+        </div>
+      </div>
+    </div>
+    <nav class="container container-menu">
+      <p-overlayPanel #brands [dismissable]="true">
+        <ng-template pTemplate>
+          <div *ngFor="let brand of marcas">
+            <button
+              class="btn-desp"
+              type="button"
+              [routerLink]="['products']"
+              [queryParams]="{ brand: brand.id }">
+              <img [src]="brand.image" style="width: 40px" alt="" />
+
+              {{ brand.name }}
+            </button>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+      <p-overlayPanel #category [dismissable]="true">
+        <ng-template pTemplate>
+          <div *ngFor="let category of categories">
+            <button
+              class="btn-desp"
+              type="button"
+              [routerLink]="['products']"
+              [queryParams]="{ category: category.id }"
+            >
+              <img [src]="category.image" style="width: 40px" alt="" />
+              {{ category.name }}
+            </button>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+      <p-overlayPanel #admin [dismissable]="true">
+        <ng-template pTemplate>
+          <div>
+            <button
+              class="btn-desp"
+              type="button"
+              [routerLink]="['crud-products']"
+            >
+              Productos
+            </button>
+            <button
+              class="btn-desp"
+              type="button"
+              [routerLink]="['crud-categories']"
+            >
+              Clasificación
+            </button>
+            <button
+              class="btn-desp"
+              type="button"
+              [routerLink]="['crud-clients']"
+            >
+              Clientes
+            </button>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+      <ul>
+        <li>
+          <button class="btn" type="button" (click)="brands.toggle($event)">
+            Marcas <i class="pi pi-angle-down" style="color: white"></i>
+          </button>
+        </li>
+        <li>
+          <button class="btn" type="button" (click)="category.toggle($event)">
+            Categorias <i class="pi pi-angle-down" style="color: white"></i>
+          </button>
+        </li>
+        <li><a href="">Servicios</a></li>
+        <li><a href="">Contactenos</a></li>
+        <li><a href="">Promociones</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a>Contactenos</a></li>
+        <li>
+          <div class="menu-container">
+            <button class="menu-button">Menú</button>
+            <div class="menu-content">
+              <a href="#">Opción 1</a>
+              <a href="#">Opción 2</a>
+              <a href="#">Opción 3</a>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="checked">
+          <button class="btn" type="button" (click)="admin.toggle($event)">
+            Admin <i class="pi pi-angle-down" style="color: white"></i>
+          </button>
+        </li>
+      </ul>
+      <!-- <p-megaMenu
+        orientation="horizontal"
+        [model]="items"
+      ></p-megaMenu> -->
+    </nav>
+  </header>
+  <div class="header-top">
+    <div class="header-top__container">
+      <div class="header-top-news">
+        <img src="../../../../assets/top-header/entrega.svg" alt="">
+        <p>Recibe tus productos en horas, no en días</p>
+      </div>
+      <div class="header-top-news">
+        <img src="../../../../assets/top-header/pago.svg" alt="">
+        <p>Pago seguro al recibir tu pedido</p>
+      </div>
+      <div class="header-top-news">
+        <img src="../../../../assets/top-header/entregaflex.svg" alt="">
+        <p>Entrega ágil y eficiente</p>
+      </div>
+      <div class="header-top-contact">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- **-----------------------------**---------------------**--------------------------------- -->
+<p-sidebar [(visible)]="display" styleClass="p-sidebar-sm" position="left">
+  <ng-template pTemplate="content">
+    <div class="searchBarRes">
+      <span class="p-input-icon-left buscar">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          style="width: 100%; max-width: 600px; border-radius: 20px"
+          placeholder="Buscar..."
+          [(ngModel)]="searchValue"
+          (focus)="onInputFocus()"
+          (blur)="onInputBlur()"
+          (keyup)="responsiveBar()"
+          pInputText
+          #searchR
+        />
+      </span>
+      <ul *ngIf="isInputFocused" class="autoCompleteList">
+        <div
+          class="lista"
+          *ngFor="let result of results"
+          (click)="producto(result.id)"
+        >
+          <img [src]="result.image" style="width: 40px" alt="" />
+          <p>{{ result.name }}</p>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center">
+          <div class="spinner" *ngIf="isLoading"></div>
+        </div>
+        <p *ngIf="messageError">No hay coincidencias</p>
+      </ul>
+    </div>
+    <ul>
+      <li>
+        <a (click)="dropMarcas()"
+          >Marcas
+          <i class="pi pi-angle-down" style="color: white" id="brandIcon"></i
+        ></a>
+      </li>
+      <div class="dropMenuBrands" *ngIf="checkDropMarcas">
+        <ul>
+          <li *ngFor="let brand of marcas">
+            <a href="">{{ brand.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <li>
+        <a (click)="dropCategorias()"
+          >Categorias
+          <i
+            class="pi pi-angle-down"
+            style="color: white"
+            id="categorieIcon"
+            id="categorieIcon"
+          ></i
+        ></a>
+      </li>
+      <div class="dropMenucategories" *ngIf="checkDropcategporias">
+        <ul>
+          <li *ngFor="let category of categories">
+            <a>{{ category.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <li><a href="">Servicios</a></li>
+      <li><a href="">Contactenos</a></li>
+      <li><a href="">Promociones</a></li>
+      <li><a href="">Blog</a></li>
+      <li><a href="">Contactenos</a></li>
+      <li *ngIf="checked">
+        <a (click)="dropCuenta()"
+          >Tu cuenta
+          <i class="pi pi-angle-down" style="color: white" id="cuentaIcon"></i
+        ></a>
+      </li>
+      <div class="dropCuenta" *ngIf="checkDropCuenta">
+        <ul>
+          <li>Actualizar datos</li>
+          <li>Cambiar contraseña</li>
+          <li (click)="logOut()">Cerrar sesion</li>
+        </ul>
+      </div>
+    </ul>
+    <div class="user-container" *ngIf="!checked">
+      <button
+        pButton
+        label="Iniciar sesion"
+        class="userBtn"
+        routerLink="login"
+      ></button>
+      <button
+        pButton
+        label="Registrarse"
+        class="userBtn"
+        routerLink="sign-in"
+      ></button>
+    </div>
+    <ng-template #Login>
+      <div class="user-container">
+        <button pButton label="Tu compra" class="userBtn"></button>
+      </div>
+    </ng-template>
+  </ng-template>
+</p-sidebar>
+
+
+<!-- **----------------------------****-------------------------------- -->

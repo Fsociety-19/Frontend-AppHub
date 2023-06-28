@@ -1,0 +1,21 @@
+.contenedor{
+  margin: 20px;
+}
+body{
+  font-family: 'Nunito';
+
+}
+.scroller::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+@media  screen and (max-width: 992px) {
+  .main{
+    padding-top: 102px;
+  }
+}
+@media  screen and (min-width: 992px) {
+  .main{
+    padding-top: 166px;
+  }
+}

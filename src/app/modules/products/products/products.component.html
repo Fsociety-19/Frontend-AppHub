@@ -1,0 +1,144 @@
+<div class="container">
+  <p-toast></p-toast>
+  <div class="container-categories">
+    <span class="subtitle">Estas Comprando Para:</span>
+    <p-selectButton
+      [options]="categories"
+      [(ngModel)]="categoriesSelect"
+      optionLabel="name"
+      optionValue="id"
+      class="categorieButtons"
+      (onChange)="getSubcategorias()"
+    >
+      <ng-template let-category class="category-button" pTemplate="content">
+        <img
+          class="image-cateorgy"
+          alt="logo"
+          [src]="category.image"
+          style="object-fit: cover"
+        />
+        <span class="category-name">{{ category.name }}</span>
+      </ng-template>
+    </p-selectButton>
+  </div>
+  <div class="subcategory">
+    <p-dropdown
+      class="filtro"
+      [options]="brands"
+      [(ngModel)]="brandsSelect"
+      optionLabel="name"
+      optionValue="code"
+      placeholder="Marcas"
+      (onChange)="filtroBrandClas()"
+    ></p-dropdown>
+  </div>
+
+  <div>
+    <p-dataView
+      #dv
+      [value]="productFilter"
+      [paginator]="true"
+      [rows]="12"
+      filterBy="name"
+      [sortField]="sortField"
+      [sortOrder]="sortOrder"
+      layout="grid"
+      emptyMessage="No hay resultados"
+    >
+      <ng-template pTemplate="header">
+        <div class="filtros">
+          <p-dropdown
+            [options]="subcategories"
+            [(ngModel)]="subcategoriesSelect"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Subcategorias..."
+            (onChange)="getClasificacion()"
+            *ngIf="categoriesSelect !== 0"
+          ></p-dropdown>
+          <p-dropdown
+            class="filtro"
+            [options]="clasification"
+            [(ngModel)]="clasificationSelect"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Clasificaciones"
+            (onChange)="filtroBrandClas()"
+            *ngIf="subcategoriesSelect !== 0"
+          ></p-dropdown>
+        </div>
+      </ng-template>
+      <ng-template let-product pTemplate="gridItem">
+        <div class="container-card">
+          <div class="product-grid-item card">
+            <a href="https://web.whatsapp.com">
+              <i class="pi pi-whatsapp social-icon"></i>
+            </a>
+            <div
+              [routerLink]="'detail/' + product.id"
+              class="product-grid-item-top"
+            >
+              <div class="contaienr-image">
+                <img class="products-image" [src]="product.image" alt="" />
+              </div>
+              <span class="products-name" style="text-align: center;">{{ product.name }}</span>
+            </div>
+            <p-rating
+              [ngModel]="3"
+              [readonly]="true"
+              [cancel]="false"
+            ></p-rating>
+            <div class="product-grid-item-content">
+              <span class="product-price"
+                >${{ product.pSelect.price1 | number : "1.0-0" }}</span
+              >
+              <div class="content-properties">
+                <p-inputNumber
+                  class="increment-decrement"
+                  [(ngModel)]="product.val"
+                  [step]="1.0"
+                  [showButtons]="true"
+                  mode="decimal"
+                  [min]="1"
+                  [max]="product.pSelect.stock"
+                  buttonLayout="horizontal"
+                  inputId="horizontal"
+                  spinnerMode="horizontal"
+                  incrementButtonIcon="pi pi-plus"
+                  decrementButtonIcon="pi pi-minus"
+                ></p-inputNumber>
+              </div>
+            </div>
+            <div class="select_presentation">
+              <span *ngFor="let pres of product.presentations" class="select">
+                <input
+                type="radio"
+                hidden
+                [(ngModel)]="product.pSelect"
+                [value]="pres"
+                name="'presentation' + pres.code"
+                [id]="'id' + pres.code"
+                />
+                <label [for]="'id' + pres.code" [ngClass]="{checked: product.pSelect.code === pres.code}">{{ pres.name }}</label>
+              </span>
+            </div>
+            <div class="add-to-cart">
+              <button
+                style="
+                  width: 100%;
+                  background-color: #9aac18;
+                  border-color: #9aac18;
+                  color: white Impo !important;
+                "
+                pButton
+                type="button"
+                label="Añadir al carrito"
+                (click)="addToCart(product)"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>

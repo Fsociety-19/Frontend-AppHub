@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="formClient" class="card">
+    <div class="descriptions">
+      <!-- ddescripcion de los datos del cliente -->
+      <span>
+        <label for="nombre">Nombres </label>
+        <input pInputText type="text" id="nombre" formControlName="name" />
+      </span>
+      <span>
+        <label for="apellido">Apellidos </label>
+        <input pInputText type="text" id="apellido" formControlName="lastName" />
+      </span>
+      <!-- <span>
+        <label for="Promo">Fecha de nacimiento </label>
+        <input pInputText type="date" id="Promo" />
+      </span> -->
+      <!-- <span>
+        <label for="nombre">Email </label>
+        <input pInputText type="email" id="nombre" />
+      </span> -->
+      <span>
+        <label for="telefono">Telefono </label>
+        <input pInputText type="text" id="telefono" formControlName="phone" />
+      </span>
+      <!-- <span>
+          <label for="options">Rol </label>
+          <p-dropdown
+            id="options"
+            [options]="options"
+            [(ngModel)]="focus"
+            placeholder="Customer"
+            optionLabel="name"
+            [showClear]="true"
+          ></p-dropdown>
+        </span> -->
+      <button pButton label="Guardar" [disabled]="!formClient.valid"></button>
+    </div>
+  </form>
+</div>
