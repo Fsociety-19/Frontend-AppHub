@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BarndsModels } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../../products/service/product.service';
-import { UsersService } from '../../../services/users/users.service';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ProductService } from '../../../../services/products/product.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-edit-brands',
@@ -66,16 +66,15 @@ export class EditBrandsComponent implements OnInit {
         });
         this.idBrand = data.id;
         this.image = data.image;
-        console.log(data);
+
       },
       error: (err) => {
-        console.log(err);
+
       },
     });
   }
 
   uploadImg(event: any) {
-    console.log('upload');
   }
 
   //image capture

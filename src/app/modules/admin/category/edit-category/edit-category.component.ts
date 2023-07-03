@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesModels } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../../products/service/product.service';
-import { UsersService } from '../../../services/users/users.service';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ProductService } from '../../../../services/products/product.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -62,7 +62,6 @@ export class EditCategoryComponent implements OnInit {
     this.productService.getCategoryById(this.idCategory).subscribe({
       next: (data) => {
         this.category = data;
-        console.log(this.category);
         this.formCategory.setValue({
           name: data.name,
           image: data.image,
@@ -70,7 +69,7 @@ export class EditCategoryComponent implements OnInit {
         this.image = data.image;
       },
       error: (err) => {
-        console.log(err);
+
       },
     });
   }
@@ -179,7 +178,7 @@ export class EditCategoryComponent implements OnInit {
         });
       },
       error: (err) => {
-        console.log(err)
+
         this.messageService.add({
           severity: 'error',
           summary: 'Error',

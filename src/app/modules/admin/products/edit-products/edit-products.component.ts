@@ -14,9 +14,9 @@ import {
   ClasificationModel,
 } from 'src/app/Models/CategoriesModel';
 import { ProductsModel } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../../../products/service/product.service';
-import { UsersService } from '../../../services/users/users.service';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ProductService } from '../../../../services/products/product.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-edit-products',
@@ -246,7 +246,6 @@ export class EditProductsComponent implements OnInit {
         this.formProducts.reset();
       },
       error: (err) => {
-        console.log(err);
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -278,7 +277,6 @@ export class EditProductsComponent implements OnInit {
         });
       },
       error: (err) => {
-        console.log(err);
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -390,7 +388,7 @@ export class EditProductsComponent implements OnInit {
   }
 
   addImageMain(event: any) {
-    console.log(event.currentFiles[0].name);
+    //console.log(event.currentFiles[0].name);
   }
 
   //ver image

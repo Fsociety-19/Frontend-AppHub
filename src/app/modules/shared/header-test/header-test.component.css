@@ -1,3 +1,14 @@
+
+:host::ng-deep .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow:none;
+  border-color: none;
+}
+:host::ng-deep .p-inputtext:enabled:hover{
+  border-color: #EFF6FF;
+}
+
 .fixed {
   height: auto;
   width: 100%;
@@ -6,45 +17,50 @@
 }
 
 .header {
-  background: #1a2537;
+  background: #f1f1f1;
   display: flex;
   flex-direction:column;
   align-items: center;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  gap: 10px;
 }
 
 .container_1 {
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 78%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 80%;
   z-index: 10;
   box-sizing: border-box;
-  gap: 10px;
-  padding: 10px;
+  gap: 25px;
+  padding-top: 15px;
 }
-
+.bars{
+ display: none;
+}
 .container-menu {
   width: 80%;
   display: flex;
   justify-content: start;
+  padding-bottom: 10px;
 }
 
-.container-menu ul {
+
+.container-menu .container-menu-items {
   display: flex;
   flex-direction: row;
   align-items: center;
   list-style: none;
   padding: 0;
-  margin-bottom: 5px;
+  margin-bottom: 0;
+  gap:20px;
 }
 
-.container-menu ul li {
-  margin: 0 20px;
-}
 
-.container-menu ul li a {
-  color: white;
+.container-menu .container-menu-items li a {
+  color: #1a2537;
+  font-weight: 600;
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
@@ -58,13 +74,10 @@
 
 .my-account p {
   margin-left: 40px;
+  color: #1a2537;
 }
 
-.user-icon {
-  background: #f9bf1b;
-  padding: 16px;
-  border-radius: 30px;
-}
+
 
 .content-actions-user {
   display: flex;
@@ -75,12 +88,6 @@
 
 .content-actions-user p {
   font-size: 20px;
-}
-
-.separador {
-  border-left: 1px solid white;
-  height: 20px;
-  margin: 0px 10px 0px 10px;
 }
 
 .my-cart {
@@ -104,7 +111,9 @@
   gap: 20px;
   align-items: center;
 }
-
+.searchBarRes{
+  display: none;
+}
 
 
 .button {
@@ -122,44 +131,13 @@
 }
 
 .content-img {
-  width: 120px;
+  width: 180px;
   height: auto;
 }
 
 .content-img img {
   vertical-align: middle;
   width: 100%;
-  cursor: pointer;
-}
-
-/* Dropdown login header ------------- */
-.dropDown-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  padding: 5px;
-}
-
-.dropDown-user span,
-h3 {
-  margin: 10px 0px 20px 0px;
-}
-
-.dropDown-user button {
-  width: 100%;
-  background-color: #aeb422;
-  border: none;
-}
-
-.dropDown-user button:hover {
-  background-color: #616408;
-  border: none;
-}
-.dropDown-user p {
-  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -259,6 +237,9 @@ h3 {
 .searchBar {
   display: none;
 }
+.btn{
+  color: #1a2537;
+}
 
 /* resultados */
 #autocomplete-list {
@@ -320,9 +301,6 @@ h3 {
   animation: spin 1s linear infinite;
 }
 
-/*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
 
 @keyframes spin {
   0% {
@@ -339,7 +317,7 @@ h3 {
   padding: 10px 0;
   width: 100%;
   border-bottom: 1px solid hsl(0, 0%, 93%);
-  background-color: #f2a413;
+  background-color: #AEB521;
   align-items: flex-start;
   /* align-content: stretch; */
   flex-direction: column;
@@ -361,13 +339,13 @@ li {
 
 .header-top-news::before {
   content: "| ";
+  color: wheat;
 }
 .header-top-news img {
   padding-right: 10px;
 }
-.header-top-news,
-.header-top-contact p {
-  color: #1a2537;
+.header-top-news p {
+  color: white;
   font-weight: bold;
 }
 
@@ -375,64 +353,85 @@ li {
 p {
   display: inline-block;
 }
+
 /* Responsive vista celular */
 @media screen and (max-width: 1024px) {
   /* Container principal  */
-  .container_1 {
-    padding: 20px 10px !important;
+  .header {
     display: flex;
+    align-items: center;
+    height: 130px;
+  }
+  .container_1 {
+    padding-top:10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10px;
+    display: flex;
+    width: 95%;
     flex-direction: row;
+    align-items: baseline;
     justify-content: space-between;
   }
+  .bars{
+    display: flex;
+    position: relative;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+  }
 
+  .bars img{
+    width: 100%;
+    height: 100%;
+  }
   :host::ng-deep .p-sidebar {
     display: block;
   }
-
-  .searchBar {
-    display: none;
+    .container-search,
+    .separador,
+    .container-menu,
+    .content-actions-user {
+      display: none;
+    }
+  .myaccount-btn-ingresar{
+    display: block;
   }
 
-  .my-account,
-  .container-search,
-  .separador,
-  .container-menu,
-  .content-actions-user {
+
+  .my-account-dropdown{
     display: none;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
   }
 
-.my-account-dropdown{
-  display: none;
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
   /* imagen del logo */
   .content-img img {
-    width: 100%;
+    width: 70%;
     padding: 0;
     margin: 0;
   }
@@ -481,14 +480,18 @@ p {
     border: none;
   }
 
-  :host::ng-deep .bars .p-button-icon {
-    color: white;
+  :host::ng-deep .bars .p-button-icon0 {
+    color: #1a2537;
+    width: 10px;
   }
-
+  :host::ng-deep .p-button:enabled:hover{
+    background-color: transparent;
+  }
   :host::ng-deep .p-ripple {
     background-color: transparent;
     border: none;
     display: flex;
+    width: 17px;
   }
 
   .logout {
@@ -496,11 +499,14 @@ p {
   }
 
   .searchBarRes {
+    width: 95%;
+    padding-bottom: 10px;
     display: flex;
-    gap: 5px;
     flex-direction: column;
   }
-
+  .searchBarRes input{
+    width: 100%;
+  }
   .autoCompleteList {
     position: relative !important;
     width: 100%;
@@ -520,10 +526,6 @@ p {
 
   .searchBar span {
     width: 100%;
-  }
-
-  .container-menu {
-    display: flex !important;
   }
 
   .autoCompleteList {
@@ -546,6 +548,4 @@ p {
   .header-top{
     display: none;
   }
-}
-@media (min-width: 570px) {
 }

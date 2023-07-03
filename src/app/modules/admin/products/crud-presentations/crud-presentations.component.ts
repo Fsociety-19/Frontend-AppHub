@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PresentationsModel } from 'src/app/Models/CategoriesModel';
 import { ProductsModel } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../../../products/service/product.service';
+import { ProductService } from '../../../../services/products/product.service';
 
 @Component({
   selector: 'app-crud-presentations',
@@ -47,8 +47,7 @@ export class CrudPresentationsComponent implements OnInit {
     this.getItemId.getProductById(this.idProduct).subscribe({
       next: (data)=> {
         this.Presentaciones = data.presentations;
-        console.log(this.Presentaciones)
-      }, error: (err)=>{console.log(err)}
+      }, error: (err)=>{}
     })
   }
 

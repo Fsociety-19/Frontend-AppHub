@@ -73,6 +73,9 @@
 li {
   list-style: none;
 }
+.footer .container {
+    max-width: 80%;
+}
 .grid-list {
   display: grid;
   gap: 30px;
@@ -151,14 +154,11 @@ a {
 
 /* MEDIA QUERY */
 
-@media (min-width: 575px) {
-  .container {
-    max-width: 540px;
+@media (min-width: 340px) {
+  .footer .container {
     margin-inline: auto;
-    width: 100%;
+    width: 95%;
   }
-
-
 }
 
 @media (min-width: 768px) {
@@ -166,8 +166,8 @@ a {
     --section-padding: 100px;
   }
 
-  .container {
-    max-width: 720px;
+  .footer .container {
+    width: 95%;
   }
 
   .grid-list {
@@ -177,9 +177,6 @@ a {
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 965px;
-  }
 
   /* header */
 
@@ -228,15 +225,10 @@ a {
 }
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
+@media (max-width: 1024px) {
+  .footer .container {
+    max-width: 95%;
   }
 
 }
 
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1320px;
-  }
-}

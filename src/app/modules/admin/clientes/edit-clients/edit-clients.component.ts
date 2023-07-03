@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -27,14 +27,13 @@ export class EditClientsComponent implements OnInit {
       window.location.href = "/"
     }
     this.id = this.route_.snapshot.paramMap.get("id")
-    console.log(this.id)
+
     this.getClient()
   }
 
   getClient(){
     this.api.getCrudsOneById("v1/store/customers", this.id).subscribe({
       next: (res)=> {
-        console.log(res)
         this.formClient.setValue({
           name: res.customer.name,
           lastName: res.customer.lastName,

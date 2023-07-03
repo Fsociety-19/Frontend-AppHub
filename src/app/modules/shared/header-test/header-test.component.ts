@@ -1,5 +1,5 @@
-import { UsersService } from './../../services/users/users.service';
-import { ProductService } from './../../products/service/product.service';
+import { UsersService } from '../../../services/users/users.service';
+import { ProductService } from './../../../services/products/product.service';
 import { MegaMenuItem } from 'primeng/api/megamenuitem';
 import {
   CategoriesModels,
@@ -9,7 +9,7 @@ import { ProductsModel } from './../../../Models/produts/productsModel';
 import { Router } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ApiCrudService } from '../../services/cruds/api-cruds.service';
+import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -152,14 +152,12 @@ export class HeaderTestComponent implements OnInit {
   }
 
   producto(id: any) {
-    console.log('Hola');
     window.location.href = '/products/detail/' + id;
   }
 
   getProduts() {
     this.productsService.getProducts().subscribe({
       next: (ok) => {
-        console.log(ok);
       },
       error: (err) => {},
     });
@@ -198,7 +196,7 @@ export class HeaderTestComponent implements OnInit {
   search(event: any) {
     this.productsService.getProductById(event.query).subscribe({
       next: () => {
-        console.log('ok');
+
       },
       error: (err) => {},
     });
@@ -207,10 +205,9 @@ export class HeaderTestComponent implements OnInit {
   searchBar(like: any) {
     this.userService.postSearchBar(like).subscribe({
       next: (ok) => {
-        console.log(ok);
+
       },
       error: (err) => {
-        console.log(err);
       },
     });
   }
@@ -254,9 +251,7 @@ export class HeaderTestComponent implements OnInit {
         filtered.push(Productos);
       }
     }
-    console.log(filtered);
     this.results = filtered;
-    console.log(this.results);
   }
 
   select(event: any) {

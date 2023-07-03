@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../services/users/users.service';
+import { UsersService } from '../../../../services/users/users.service';
 
 @Component({
   selector: 'app-crud-ordenes',
@@ -43,8 +43,7 @@ export class CrudOrdenesComponent implements OnInit {
   getOrders(){
     this.userservice.getOrder().subscribe({
       next: (data) => {
-        console.log(data)
-      }, error: (err) =>{console.log(err)}
+      }, error: (err) =>{}
     })
   }
 }

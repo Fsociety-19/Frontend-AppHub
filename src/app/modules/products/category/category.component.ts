@@ -4,7 +4,7 @@ import { SelectItem, PrimeNGConfig } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { CategoriesModels } from 'src/app/Models/CategoriesModel';
 import { ProductsModel, ProductWeigth } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../service/product.service';
+import { ProductService } from '../../../services/products/product.service';
 
 @Component({
   selector: 'app-category',
@@ -118,7 +118,6 @@ export class CategoryComponent implements OnInit {
           this.subcategories.push({ name:el.name, code:el.id})
         });
         this.subcategories = ok
-        console.log(ok)
       },
       error: (err) => {}
     });
@@ -146,7 +145,6 @@ export class CategoryComponent implements OnInit {
   }
 
   handleClick(event:Event) {
-    console.log(event)
     if(this.categoriesSelect == 1){
       this.products = this.dog
     }else{

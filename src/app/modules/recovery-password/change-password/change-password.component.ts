@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { UsersService } from '../../services/users/users.service';
+import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-change-password',
@@ -25,21 +25,16 @@ export class ChangePasswordComponent implements OnInit {
     this._route.queryParams.subscribe({
       next: (data)=> {
         this.payload = data;
-        console.log(this.payload)
-      }, error: (err)=> {console.log(err)}
+      }, error: (err)=> {}
     })
   }
 
   changePass(){
     if (this.formChangePass.value.password_1 == this.formChangePass.value.password_2){
       let params = {payload: this.payload.payload, password: this.formChangePass.value.password_1}
-      console.log(params)
       this.service.postChangePass(params).subscribe({
         next: (data)=> {
-          console.log(data)
         }, error: (err)=> {
-          console.log(params)
-          console.log(err.error.message)
           if (err.error.message === 'Token expired, please try again'){
             this.showErrorToken();
           }

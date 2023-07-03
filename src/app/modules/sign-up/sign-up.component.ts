@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { RegisterI } from 'src/app/Models/authentication/authmodel.interface';
-import { UsersService } from '../services/users/users.service';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -58,7 +58,6 @@ export class SignUpComponent implements OnInit {
         } else if (err.statusText == 'Bad Request') {
           this.showErrorEmail();
         } else {
-          console.log(err);
         }
       },
     });

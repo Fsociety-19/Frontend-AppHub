@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Yellowtail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 @import "primeicons/primeicons.css";
-
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 /* font-family: 'Bebas Neue', cursive;
 font-family: 'Yellowtail', cursive; */
 *{
@@ -12,6 +12,8 @@ font-family: 'Yellowtail', cursive; */
   color:#292929;
   box-sizing: border-box;
   font-family: 'Nunito';
+
+
 }
 
 p, h1, h2, h3, h4, h5 {
@@ -23,7 +25,7 @@ body{
   overflow-x: hidden;
 }
 ::-webkit-scrollbar{
-  width: 2px;
+  width: 3.5px;
   background-color: #F5F5F5;
   opacity: 2;
 }

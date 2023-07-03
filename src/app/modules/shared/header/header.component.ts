@@ -5,8 +5,8 @@ import { MegaMenuItem } from 'primeng/api/megamenuitem';
 import { debounceTime, fromEvent, map } from 'rxjs';
 import { BarndsModels, CategoriesModels } from 'src/app/Models/CategoriesModel';
 import { ProductsModel } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../../products/service/product.service';
-import { UsersService } from '../../services/users/users.service';
+import { ProductService } from '../../../services/products/product.service';
+import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-header',
@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
   //metodos
 
   getSesion() {
-    this.userService.getClientToken().subscribe((res) => console.log(res));
+    this.userService.getClientToken().subscribe((res) =>{});
   }
 
   logOut() {
@@ -84,7 +84,6 @@ export class HeaderComponent implements OnInit {
   getProduts() {
     this.productsService.getProducts().subscribe({
       next: (ok) => {
-        console.log(ok);
       },
       error: (err) => {},
     });
@@ -123,7 +122,6 @@ export class HeaderComponent implements OnInit {
   search(event: any) {
     this.productsService.getProductById(event.query).subscribe({
       next: () => {
-        console.log('ok');
       },
       error: (err) => {},
     });
@@ -132,10 +130,8 @@ export class HeaderComponent implements OnInit {
   searchBar(like: any) {
     this.userService.postSearchBar(like).subscribe({
       next: (ok) => {
-        console.log(ok);
       },
       error: (err) => {
-        console.log(err);
       },
     });
   }
@@ -171,10 +167,8 @@ export class HeaderComponent implements OnInit {
         filtered.push(Productos);
       }
     }
-    console.log(filtered);
     this.results = filtered;
-    console.log(this.results);
-  }
+    }
 
   select(event: any) {
     this.router.navigate([`/products`], { queryParams: { id: event.id } });

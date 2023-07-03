@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , HostBinding, Renderer2, ElementRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import { Observable } from 'rxjs';
@@ -12,9 +12,9 @@ import {
   ProductsModel,
   ProductWeigth,
 } from 'src/app/Models/produts/productsModel';
-import { UsersService } from '../../services/users/users.service';
-import { ProductService } from '../service/product.service';
-import { ApiCrudService } from '../../services/cruds/api-cruds.service';
+import { UsersService } from '../../../services/users/users.service';
+import { ProductService } from '../../../services/products/product.service';
+import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
 import { HttpParams } from '@angular/common/http';
 
 @Component({
@@ -24,6 +24,7 @@ import { HttpParams } from '@angular/common/http';
   providers: [MessageService],
 })
 export class ProductsComponent implements OnInit {
+  @HostBinding('style.outline') outline = 'none';
   private data$: Observable<any> = new Observable<any>();
   urlTree: any;
   idProduct!: number;
@@ -51,7 +52,8 @@ export class ProductsComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     public messageService: MessageService,
     private _router: ActivatedRoute,
-    private api: ApiCrudService
+    private api: ApiCrudService,
+    private renderer: Renderer2, private elementRef: ElementRef
   ) {
     // llamado a api
     this.getProduts();
@@ -61,6 +63,27 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+  }
+  ngAfterViewInit() {
+    const element = this.elementRef.nativeElement.querySelector('.p-paginator .p-paginator-next');
+    this.renderer.listen(element, 'click', () => {
+      this.scrollToTop();
+    });
+    const element2 = this.elementRef.nativeElement.querySelector('.p-paginator .p-paginator-prev');
+    this.renderer.listen(element2, 'click', () => {
+      this.scrollToTop();
+    });
+    const element3 = this.elementRef.nativeElement.querySelector('.p-paginator .p-paginator-pages');
+    this.renderer.listen(element3, 'click', () => {
+      this.scrollToTop();
+    });
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   //filtrar
@@ -156,7 +179,7 @@ export class ProductsComponent implements OnInit {
       if (producto) {
         array.forEach((el: any) => {
           if (product.pSelect.code === el.pSelect.code) {
-            console.log('hola');
+
             el.val = el.val + product.val;
           }
         });
@@ -171,7 +194,6 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts().subscribe({
       next: (ok) => {
         this.products = ok;
-        console.log(ok);
         this.products.forEach((el: any) => {
           const select = el.presentations.filter(
             (res: any) => res.code === el.pSelect
@@ -181,7 +203,9 @@ export class ProductsComponent implements OnInit {
         this.productFilter = this.products;
         this.filtroQuery();
       },
-      error: (err) => {},
+      error: (err) => {
+        console.log(err.status)
+      },
     });
   }
   //Cargar categorias

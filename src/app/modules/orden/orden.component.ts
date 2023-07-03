@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiCrudService } from '../services/cruds/api-cruds.service';
-import { UsersService } from '../services/users/users.service';
+import { ApiCrudService } from '../../services/cruds/api-cruds.service';
+import { UsersService } from '../../services/users/users.service';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -62,7 +62,6 @@ export class OrdenComponent implements OnInit {
   getPayMetodh() {
     this.api.getCruds('v1/store/payMethods').subscribe({
       next: (res) => {
-        console.log(res);
         this.payMethods = res;
         this.pay = res[0].id;
       },

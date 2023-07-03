@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesModels } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../products/service/product.service';
-import { CarouselService } from '../../services/carousel/carousel.service'
+import { ProductService } from '../../../services/products/product.service';
+import { CarouselService } from '../../../services/carousel/carousel.service'
 import { CarouselI } from '../../../Models/carosuel/carousel'
 
 @Component({
@@ -21,7 +21,7 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     // this.carouselService.getCarousel().then(Carousel=> {
     //   this.categories = Carousel;
-    //   console.log(this.categories)
+    //
     // })
     this.categories = [{image: '../../../../assets/carousel/pexels-engin-akyurt-14374653.jpg'},
     {image: '../../../../assets/carousel/pexels-lumn-4060142.jpg'},

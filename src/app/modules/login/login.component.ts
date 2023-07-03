@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginI } from 'src/app/Models/authentication/authmodel.interface';
-import { UsersService } from '../services/users/users.service';
+import { UsersService } from '../../services/users/users.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MessageService} from 'primeng/api';

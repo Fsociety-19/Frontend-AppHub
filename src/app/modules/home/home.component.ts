@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesModels, SubcategoriesModel } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../products/service/product.service';
+import { ProductService } from '../../services/products/product.service';
 import { CarouselI } from '../../Models/carosuel/carousel'
-import { UsersService } from '../services/users/users.service';
-import { ApiCrudService } from '../services/cruds/api-cruds.service';
+import { UsersService } from '../../services/users/users.service';
+import { ApiCrudService } from '../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-home',
@@ -86,7 +86,6 @@ export class HomeComponent implements OnInit {
     this.service.getSubcategories().subscribe({
       next: (ok) => {
         this.subcategories = ok
-        console.log(ok)
       },
       error: (err) => {}
     });

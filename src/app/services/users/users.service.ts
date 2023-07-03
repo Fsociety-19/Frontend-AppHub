@@ -1,5 +1,5 @@
-import { OrderModel } from './../../../Models/order.interface';
-import { ClientResponseModel } from './../../../Models/Clients.interface';
+import { OrderModel } from '../../Models/order.interface';
+import { ClientResponseModel } from '../../Models/Clients.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';

@@ -1,7 +1,7 @@
 import { ClientsModel } from '../../../../Models/Clients.interface';
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../services/users/users.service';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-cruds-clients',
@@ -27,8 +27,7 @@ export class CrudsClientsComponent implements OnInit {
     this.api.getCruds("v1/store/customers").subscribe({
       next: (data) => {
         this.Clients = data
-        console.log(this.Clients)
-      }, error: (err) => {console.log(err)}
+        }, error: (err) => {}
     })
   }
 

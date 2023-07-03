@@ -1,5 +1,13 @@
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .contenedor {
   display: block;
+  width: 100%;
 }
 
 h2 {
@@ -9,8 +17,47 @@ h2 {
 a {
   text-decoration: none;
 }
-.categorie-name {
-  margin-top: 25px;
+
+.categories-title {
+  margin-top: 0px;
+  margin-bottom: 18px;
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.categories-title p {
+  font-size: 1.36rem;
+  font-weight: 900;
+}
+
+.container-category div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: center;
+  width: 200px;
+  min-width: 130px;
+  max-width: 210px;
+  height: 130px;
+  margin: 15px 0px;
+  padding: 0 0px;
+}
+.container-category div img:hover {
+  cursor: pointer;
+  opacity: 40%;
+}
+.container-category > div > img {
+  width: 100px;
+}
+
+.container-social-media > img {
+  width: 30px;
+  margin: 2px;
 }
 
 :host ::ng-deep .contenedor .ng-star-inserted .p-carousel-item {
@@ -18,68 +65,15 @@ a {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
-  --black-fond: #111828;
-  --white: #ffffff;
-  --greem: #3cbd96;
-  --silver-metallic: hsl(240, 4%, 71%);
-  --violet: #d946ef;
-  --raisin-black: hsla(216, 14%, 14%, 1);
-  --gradient-color: #3cbd96;
-  --colorrgb: #e2f5ef;
-  --gradient-color: #3cbd96;
-  --color-text: #204945;
-
-  /**
-      /* typografia */
-  --ff-jost: "Anybody", cursive;
-  --ff-red-hat: "Red Hat Text", sans-serif;
-
-  /* font size */
-  --fs-1: 4.1rem;
-  --fs-2: 3.5rem;
-  --fs-02: 3rem;
-  --fs-3: 2.5rem;
-  --fs-4: 1.9rem;
-  --fs-5: 1.8rem;
-  --fs-6: 1.7rem;
-  --fs-7: 1.5rem;
-  --fs-8: 1.2rem;
-  --fs-9: 1rem;
-
-  --fw-700: 700;
-
-  /**
-       * spacing
-       */
-
-  --section-padding: 40px;
-
-  /**
-       * border radius */
-  --radius-circle: 50%;
-  --radius-pill: 100px;
-  --radius-10: 10px;
-  --radius-8: 8px;
-  --radius-6: 6px;
-
-  /**
-       * box shadow
-       */
-
-  --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
-  --shadow-2: 0 0 0 0.05rem hsla(214, 88%, 27%, 0.08),
-    0 0 1.25rem hsla(216, 14%, 14%, 0.06);
-  --shadow-3: 0 0 1.25rem hsla(216, 14%, 14%, 0.04);
-
-  /**
-    * transitions  */
-  --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease;
-  --transition-3: 0.3s ease-in-out;
 }
 
-:host ::ng-deep  .contenedor ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev {
+:host
+  ::ng-deep
+  .contenedor
+  ::ng-deep
+  .p-carousel
+  .p-carousel-content
+  .p-carousel-prev {
   position: absolute;
   z-index: 998;
   width: 40px;
@@ -90,7 +84,7 @@ a {
   color: #ff0000;
   background-color: rgba(255, 255, 255, 0.4);
 }
-:host ::ng-deep  .contenedor .p-carousel .p-carousel-content .p-carousel-next {
+:host ::ng-deep .contenedor .p-carousel .p-carousel-content .p-carousel-next {
   position: absolute;
   z-index: 998;
   width: 40px;
@@ -102,27 +96,25 @@ a {
   background-color: rgba(255, 255, 255, 6);
 }
 
-
-:host ::ng-deep .contenedor .p-carousel-indicators {
+/*:host ::ng-deep .contenedor .p-carousel-indicators .p-reset .ng-star-inserted{
   position: absolute;
-    top: 60%;
+    top: 40%;
     right: calc(50% - 50px);
-    background-color: #dfdfdf;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     vertical-align: middle;
-    height: 3px;
+    height: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+}*/
+:host ::ng-deep .contenedor .p-carousel-indicators .p-carousel-indicator {
+  margin-right: 0.5rem;
+  margin-bottom: 0;
 }
-:host
-  ::ng-deep
-  .contenedor
-  .p-carousel
-  .p-carousel-indicators{
-  padding-bottom: 10px;
+:host ::ng-deep .contenedor .p-carousel .p-carousel-indicators {
 }
 :host
   ::ng-deep
@@ -131,11 +123,10 @@ a {
   .p-carousel-indicators
   .p-carousel-indicator
   button {
-  width: 1rem;
-  height: 1rem;
-  padding: 0%;
-  margin: 0%;
+  width: 0.6rem;
+  height: 0.6rem;
   align-self: center;
+  background-color: (255, 255, 255, 0.6);
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 }
@@ -144,8 +135,9 @@ a {
   .contenedor
   .p-carousel
   .p-carousel-indicators
-  .p-carousel-indicator.p-highlight button{
-    background: #aeb521;
+  .p-carousel-indicator.p-highlight
+  button {
+  background: #aeb521;
 }
 
 :host
@@ -270,12 +262,12 @@ li {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 2px;
 }
 
 .product-grid .showcase {
-  width: 290px;
-  height: 400px;
+  width: 270px;
+  height: 420px;
   border: 1px solid hsl(0, 0%, 93%);
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -295,8 +287,8 @@ li {
 }
 
 .product-grid .product-img {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: 0.2s ease;
@@ -461,20 +453,27 @@ li {
   margin: 40px 0 10px 0;
 }
 
-:host::ng-deep .productosContent #pr_id_2 .p-carousel-item {
-  display: flex;
-  align-items: center;
-  height: auto;
-  justify-content: center;
-  cursor: pointer;
-}
-
 @media only screen and (min-width: 360px) and (max-width: 720px) {
+  .contenedor {
+    width: 100%;
+  }
+  .categories-title{
+    width: 95%;
+  }
   :host ::ng-deep .p-carousel-indicators {
     top: 40%;
     right: 2rem;
   }
-
+  :host::ng-deep .productosContent #pr_id_2 .p-carousel-item {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 30%;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    cursor: pointer;
+  }
   .title {
     width: 100%;
     align-items: center;
@@ -495,36 +494,12 @@ li {
 
   .container-category {
     display: flex;
+    width: 95%;
     height: 140px;
     overflow-x: scroll;
     overscroll-behavior-x: contain;
     overflow-y: hidden;
     scroll-snap-type: x proximity;
-  }
-  .container-category div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-align: center;
-    width: 200px;
-    min-width: 130px;
-    max-width: 210px;
-    height: 130px;
-    margin: 15px 0px;
-    padding: 0 0px;
-  }
-  .container-category div img:hover {
-    cursor: pointer;
-    opacity: 40%;
-  }
-  .container-category > div > img {
-    width: 100px;
-  }
-
-  .container-social-media > img {
-    width: 30px;
-    margin: 2px;
   }
 
   .container-category h3 {
@@ -541,103 +516,99 @@ li {
     height: 10px;
   }
 }
-@media only screen and (min-width: 721px) {
-  /* categories
-*/
 
+@media only screen and (min-width: 721px) and (max-width: 1024px) {
+  .contenedor {
+    width: 100%;
+  }
+  .categories-title {
+    width: 95%;
+  }
+
+  .productosContent {
+    width: 95%;
+  }
+  :host::ng-deep .productosContent #pr_id_2 .p-carousel-item {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 20%;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    cursor: pointer;
+  }
   .container-category {
     display: flex;
     height: 140px;
     overflow-x: scroll;
+    width: 95%;
     overscroll-behavior-x: contain;
     overflow-y: hidden;
     scroll-snap-type: x proximity;
   }
-  .container-category div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-align: center;
-    width: 200px;
-    min-width: 130px;
-    max-width: 210px;
-    height: 130px;
-    margin: 15px 0px;
-    padding: 0 0px;
+  .grid-list {
+    grid-template-columns: 1fr 1fr;
   }
-
-  .container-category > div > img {
-    width: 100px;
-  }
-
-  .container-social-media > img {
-    width: 30px;
-    margin: 2px;
-  }
-
-  .container-category div img:hover {
-    cursor: pointer;
-    opacity: 40%;
-  }
-  .container-category h3 {
-    font: 12px;
-  }
-
 }
-
-/* MEDIA QUERY */
-
+/*
 @media (min-width: 575px) {
   .container {
-    max-width: 540px;
+    max-width: 100%;
     margin-inline: auto;
-    width: 100%;
   }
-}
+  .categories-title{
+    width: 93%;
+  }
 
+}
+/*
 @media (min-width: 768px) {
   :root {
     --section-padding: 100px;
   }
-
-  .container {
-    max-width: 720px;
+  .container{
+    width: 93%;
+  }
+  .categories-title{
+    width: 93%;
   }
 
-  .grid-list {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* service */
-  .service .section-text {
+    .service .section-text {
     max-width: 80%;
     margin-inline: auto;
   }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 965px;
+  .contenedor{
+    width: 100%;
   }
   .container-productos {
     max-width: 965px;
   }
-}
+  .categories-title{
+    width: 93%;
+  }
 
-@media (min-width: 1200px) {
+}*/
+
+@media (min-width: 1025px) {
   .container {
-    max-width: 1000px;
+    width: 80%;
   }
-  .container-productos {
-    max-width: 1100px;
-  }
+  /*
   .product-grid {
     grid-template-columns: repeat(4, 2fr);
-  }
-  .container-category{
+  }*/
+  .container-category {
     justify-content: center;
     overflow-x: hidden;
+    width: 76%;
+    display: flex;
+    height: 140px;
+    width: 80%;
+    overflow-y: hidden;
   }
 
   /* services */
@@ -659,10 +630,30 @@ li {
   .service .section-text {
     max-width: 50%;
   }
+  :host::ng-deep .productosContent #pr_id_2 .p-carousel-item {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 31%;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 1440px) {
+  :host::ng-deep .productosContent #pr_id_2 .p-carousel-item {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 29%;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    cursor: pointer;
+  }
   .container {
-    max-width: 1320px;
+    max-width: 80%;
   }
 }

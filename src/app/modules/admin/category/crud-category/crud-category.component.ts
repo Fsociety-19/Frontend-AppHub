@@ -7,7 +7,7 @@ import {
   ClasificationModel,
   SubcategoriesModel,
 } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../../products/service/product.service';
+import { ProductService } from '../../../../services/products/product.service';
 
 @Component({
   selector: 'app-crud-category',
@@ -96,7 +96,6 @@ export class CrudCategoryComponent implements OnInit {
         this.categorias = data;
       },
       error: (err) => {
-        console.log(err);
       },
     });
   }
@@ -109,11 +108,9 @@ export class CrudCategoryComponent implements OnInit {
       accept: () => {
         this.productService.deleteCategory(id).subscribe({
           next: (data) => {
-            console.log(data);
             location.reload();
           },
           error: (err) => {
-            console.log(err);
           },
         });
       },
@@ -125,10 +122,8 @@ export class CrudCategoryComponent implements OnInit {
     this.productService.getSubcategories().subscribe({
       next: (data) => {
         this.subCategorias = data;
-        console.log(data);
       },
       error: (err) => {
-        console.log(err);
       },
     });
   }
@@ -141,11 +136,10 @@ export class CrudCategoryComponent implements OnInit {
       accept: () => {
         this.productService.deletesubcategory(id).subscribe({
           next: (data) => {
-            console.log(data);
             location.reload();
           },
           error: (err) => {
-            console.log(err);
+
           },
         });
       },
@@ -159,7 +153,7 @@ export class CrudCategoryComponent implements OnInit {
         this.clasificaciones = data;
       },
       error: (err) => {
-        console.log(err);
+
       },
     });
   }
@@ -172,11 +166,11 @@ export class CrudCategoryComponent implements OnInit {
       accept: () => {
         this.productService.deleteClasification(id).subscribe({
           next: (data) => {
-            console.log(data);
+
             location.reload();
           },
           error: (err) => {
-            console.log(err);
+
           },
         });
       },
@@ -190,7 +184,7 @@ export class CrudCategoryComponent implements OnInit {
         this.marcas = data;
       },
       error: (err) => {
-        console.log(err);
+
       },
     });
   }
@@ -203,11 +197,11 @@ export class CrudCategoryComponent implements OnInit {
       accept: () => {
         this.productService.deleteBrand(id).subscribe({
           next: (data) => {
-            console.log(data);
+
             location.reload();
           },
           error: (err) => {
-            console.log(err);
+
           },
         });
       },

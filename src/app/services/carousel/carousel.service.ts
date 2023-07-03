@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CarouselI } from '../../../Models/carosuel/carousel'
+import { CarouselI } from '../../Models/carosuel/carousel'
 import { HttpClient } from '@angular/common/http'
 @Injectable({
   providedIn: 'root'

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PresentationsModel } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../../products/service/product.service';
+import { ProductService } from '../../../../services/products/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-edit-presentations',
@@ -65,10 +65,8 @@ export class EditPresentationsComponent implements OnInit {
 
     if (code === 'new') {
       this.New = true;
-      console.log('new');
     } else {
       this.getproduct(id, code);
-      console.log('edit');
     }
   }
 
@@ -117,7 +115,7 @@ export class EditPresentationsComponent implements OnInit {
       delete params.code
       this.api.updateCrudsRaws("v1/store/products/Presentation" , this.formPresentations.value.code, params).subscribe({
         next: (data) => {
-          console.log(data);
+
           this.messageService.add({
             severity: 'success',
             summary: 'success',
@@ -126,14 +124,13 @@ export class EditPresentationsComponent implements OnInit {
           this.router.navigate(['crud-products/crud-presentations/'+ this.productId])
         },
         error: (err) => {
-          console.log(err);
           this.messageService.add({severity:'error', summary: 'Error', detail: 'Algo salió mal :('});
         },
       });
     } else {
       this.api.postCrudsRaws('v1/store/products/addPresentation', params).subscribe({
         next: (data) => {
-          console.log(data);
+
           this.messageService.add({
             severity: 'success',
             summary: 'success',
@@ -142,7 +139,6 @@ export class EditPresentationsComponent implements OnInit {
           this.router.navigate(['crud-products/crud-presentations/'+ this.productId])
         },
         error: (err) => {
-          console.log(err);
           this.messageService.add({severity:'error', summary: 'Error', detail: 'Algo salió mal :('});
         },
       });

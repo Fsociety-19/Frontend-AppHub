@@ -5,9 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ClasificationModel } from 'src/app/Models/CategoriesModel';
 import { ProductDetailComponent } from '../../../products/product-detail/product-detail.component';
-import { ProductService } from '../../../products/service/product.service';
-import { UsersService } from '../../../services/users/users.service';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ProductService } from '../../../../services/products/product.service';
+import { UsersService } from '../../../../services/users/users.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-edit-clasification',
@@ -62,7 +62,7 @@ export class EditClasificationComponent implements OnInit {
   getClasification(id: any) {
     this.productService.getClasificationById(id).subscribe({
       next: (data) => {
-        console.log(data);
+
         this.clasification = data.data;
         this.formClasification.setValue({
           name: data.data.name,
@@ -71,7 +71,7 @@ export class EditClasificationComponent implements OnInit {
         this.image = data.data.image;
       },
       error: (err) => {
-        console.log(err);
+
       },
     });
   }

@@ -1,6 +1,16 @@
 <div class="fixed">
   <header class="header">
     <div class="container_1">
+      <button (click)="display = true" class="bars" type="button">
+        <img src="../../../../assets/nav/menu.svg" alt="Menu">
+      </button>
+        <!-- bar menu
+      <p-button
+        type="text"
+        (click)="display = true"
+        class="bars">
+        <img src="../../../../assets/nav/menu.svg" alt="Menu">
+      </p-button>-->
       <div routerLink="" class="content-img">
         <img src="./../../../../assets/Logo_MA-07.png" alt="" />
       </div>
@@ -37,31 +47,11 @@
         <div class="content-button">
           <!-- Acount buttons  -->
           <div class="content-actions-user" *ngIf="!checked; else onlogin">
-            <div class="my-account">
-              <p
-                type="text"
-                style="color: white; font-family: 'Nunito'; cursor: pointer"
-                routerLink="login"
-              >
-                Ingresar
-              </p>
-            </div>
-            <!-- separador -->
-            <div class="separador"></div>
-            <!-- --------------- -->
-            <!-- Register content -->
-            <p
-              type="text"
-              style="
-                color: white;
-                font-family: 'Nunito';
-                cursor: pointer;
-                margin-right: 40px;
-              "
-              routerLink="/sign-in"
-            >
-              Registrarse
-            </p>
+            <button class="btn" type="button" style="color: #1a2537;
+            font-weight: 600;" (click)="micuenta.toggle($event)">
+              Tú Cuenta <i class="pi pi-angle-down" style="color: #1a2537;
+              font-weight: 600;"></i>
+            </button>
           </div>
 
           <ng-template #onlogin>
@@ -78,7 +68,7 @@
                 </div>
               </p-overlayPanel>
               <button type="button" class="btn" (click)="op.toggle($event)">
-                Tu cuenta<i class="pi pi-angle-down" style="color: white"></i>
+                Tu cuenta<i class="pi pi-angle-down" style="color:#1a2638"></i>
               </button>
               <img class="user-img" src="../../../../assets/huella.png" alt="" />
             </div>
@@ -91,17 +81,40 @@
                 </span>
             </a>
           </div>
-          <!-- bar menu -->
-          <p-button
-          type="text"
-          (click)="display = true"
-          icon="pi pi-bars"
-          class="bars"
-        ></p-button>
+
         </div>
       </div>
     </div>
-    <nav class="container container-menu">
+    <div class="searchBarRes">
+      <span class="p-input-icon-left buscar">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar..."
+          [(ngModel)]="searchValue"
+          (focus)="onInputFocus()"
+          (blur)="onInputBlur()"
+          (keyup)="responsiveBar()"
+          pInputText
+          #searchR
+        />
+      </span>
+      <ul *ngIf="isInputFocused" class="autoCompleteList">
+        <div
+          class="lista"
+          *ngFor="let result of results"
+          (click)="producto(result.id)"
+        >
+          <img [src]="result.image" style="width: 40px" alt="" />
+          <p>{{ result.name }}</p>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center">
+          <div class="spinner" *ngIf="isLoading"></div>
+        </div>
+        <p *ngIf="messageError">No hay coincidencias</p>
+      </ul>
+    </div>
+    <nav class="container-menu">
       <p-overlayPanel #brands [dismissable]="true">
         <ng-template pTemplate>
           <div *ngFor="let brand of marcas">
@@ -159,33 +172,77 @@
           </div>
         </ng-template>
       </p-overlayPanel>
-      <ul>
-        <li>
-          <button class="btn" type="button" (click)="brands.toggle($event)">
-            Marcas <i class="pi pi-angle-down" style="color: white"></i>
+      <p-overlayPanel [style]="
+                {
+                  'color':'#1a2638',
+                  'width':'300px',
+                  'box-sizing': 'border-box',
+                  'display': 'flex',
+                  'justify-content': 'center',
+                  'flex-direction': 'column',
+                  'align-content': 'center',
+                  'align-items': 'center',
+                  'gap':'15px',
+                  'border-radius':'15px'
+                }
+                " #micuenta [dismissable]="true">
+        <ng-template pTemplate>
+          <div style="width: 238px;height: 49px;display: flex;background-color: rgb(174, 180, 34);border-radius: 6px;cursor: pointer;align-content: center;justify-content: center;align-items: center;">
+              <a routerLink="/login" style="color: white; text-decoration: none; font-size: 1.4rem; font-weight: 700;">Ingresar</a>
+          </div>
+          <div style="width: 238px;height: 35px;display: flex;align-content: center;justify-content: center;align-items: center;">
+            <p style="font-size: 0.9rem; font-weight: 400; padding: 10px 0px;">¿Eres nuevo?</p>
+        </div>
+
+        <div style="width: 238px;height: 49px;display: flex;background-color: #F90;border-radius: 6px;cursor: pointer;align-content: center;justify-content: center;align-items: center;">
+          <a routerLink="/sign-in" style="color: white; text-decoration: none; font-size: 1.4rem; font-weight: 700;">Crear una cuenta</a>
+      </div>
+          <!--<a
+            type="text"
+            style="color: rgb(10, 10, 10); font-family: 'Nunito'; cursor: pointer"
+            routerLink="login">
+            Ingresar
+            </a>
+          ¿Eres nuevo?
+          <p>
+
+          </p>
+          <p
+            type="text"
+            style="
+              color: white;
+              font-family: 'Nunito';
+              cursor: pointer;
+              margin-right: 40px;
+            "
+
+          >
+            Registrarse
+          </p>-->
+        </ng-template>
+      </p-overlayPanel>
+      <ul class="container-menu-items">
+        <!--<li>
+          <button class="btn" type="button" style="color: #1a2537;
+          font-weight: 600;" (click)="brands.toggle($event)">
+            Marcas <i class="pi pi-angle-down" style="color: #1a2537;
+            font-weight: 500;"></i>
           </button>
-        </li>
-        <li>
-          <button class="btn" type="button" (click)="category.toggle($event)">
-            Categorias <i class="pi pi-angle-down" style="color: white"></i>
-          </button>
+        </li>-->
+        <li class="menu-categorias">
+          <a (click)="category.toggle($event)">
+            Categorias <i class="pi pi-angle-down" style="color: #1a2638"></i>
+          </a>
         </li>
         <li><a href="">Servicios</a></li>
-        <li><a href="">Contactenos</a></li>
         <li><a href="">Promociones</a></li>
         <li><a href="">Blog</a></li>
         <li><a>Contactenos</a></li>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu">Menú</button>
-          <mat-menu #menu="matMenu">
-          <button mat-menu-item>Opción 1</button>
-          <button mat-menu-item>Opción 2</button>
-          <button mat-menu-item>Opción 3</button>
-        </mat-menu>
         </li>
         <li *ngIf="checked">
           <button class="btn" type="button" (click)="admin.toggle($event)">
-            Admin <i class="pi pi-angle-down" style="color: white"></i>
+            Admin <i class="pi pi-angle-down" style="color:#1a2638"></i>
           </button>
         </li>
       </ul>
@@ -209,45 +266,14 @@
         <img src="../../../../assets/top-header/entregaflex.svg" alt="">
         <p>Entrega ágil y eficiente</p>
       </div>
-      <div class="header-top-contact">
 
-      </div>
     </div>
   </div>
 </div>
 <!-- **-----------------------------**---------------------**--------------------------------- -->
 <p-sidebar [(visible)]="display" styleClass="p-sidebar-sm" position="left">
   <ng-template pTemplate="content">
-    <div class="searchBarRes">
-      <span class="p-input-icon-left buscar">
-        <i class="pi pi-search"></i>
-        <input
-          type="text"
-          style="width: 100%; max-width: 600px; border-radius: 20px"
-          placeholder="Buscar..."
-          [(ngModel)]="searchValue"
-          (focus)="onInputFocus()"
-          (blur)="onInputBlur()"
-          (keyup)="responsiveBar()"
-          pInputText
-          #searchR
-        />
-      </span>
-      <ul *ngIf="isInputFocused" class="autoCompleteList">
-        <div
-          class="lista"
-          *ngFor="let result of results"
-          (click)="producto(result.id)"
-        >
-          <img [src]="result.image" style="width: 40px" alt="" />
-          <p>{{ result.name }}</p>
-        </div>
-        <div style="width: 100%; display: flex; justify-content: center">
-          <div class="spinner" *ngIf="isLoading"></div>
-        </div>
-        <p *ngIf="messageError">No hay coincidencias</p>
-      </ul>
-    </div>
+
     <ul>
       <li>
         <a (click)="dropMarcas()"
@@ -280,8 +306,7 @@
           </li>
         </ul>
       </div>
-      <li><a href="">Servicios</a></li>
-      <li><a href="">Contactenos</a></li>
+      <li><a href="">Servicio</a></li>
       <li><a href="">Promociones</a></li>
       <li><a href="">Blog</a></li>
       <li><a href="">Contactenos</a></li>

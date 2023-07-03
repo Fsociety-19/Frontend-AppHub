@@ -2,7 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthI } from 'src/app/Models/authentication/authmodel.interface';
-import { UsersService } from '../services/users/users.service'
+import { UsersService } from '../../services/users/users.service'
 
 
 @Component({
@@ -22,7 +22,6 @@ export class AuthComponent implements OnInit {
         this.queryparams = ok;
       }
     })
-    console.log(this.queryparams)
 
     this.Auth();
   }
@@ -30,7 +29,6 @@ export class AuthComponent implements OnInit {
   Auth(){
     this.authService.auth(this.queryparams).subscribe({
       next: (ok)=> {
-        console.log(ok)
         if (ok.messagge === 'There was an error with your token'){
           this.message = 'UPS! Su token es invalido';
         }else if (ok.messagge === 'Esta cuenta ya esta verificada'){

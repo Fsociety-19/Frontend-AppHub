@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartI } from '../../Models/cart/cart.interface';
 import { PrimeIcons } from 'primeng/api';
-import { UsersService } from '../services/users/users.service';
+import { UsersService } from '../../services/users/users.service';
 import {
   CartModels,
   ProductsModel,

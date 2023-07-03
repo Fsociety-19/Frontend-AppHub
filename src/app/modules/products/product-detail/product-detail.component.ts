@@ -5,7 +5,7 @@ import {
   ProductsModel,
   ProductWeigth,
 } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../service/product.service';
+import { ProductService } from '../../../services/products/product.service';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -72,7 +72,6 @@ export class ProductDetailComponent implements OnInit {
   getProduct() {
     this.productsService.getProductById(this.idProduct).subscribe({
       next: (ok) => {
-        console.log(ok);
         this.product = ok;
         this.name = ok.name;
         this.desc = ok.description;
@@ -102,11 +101,9 @@ export class ProductDetailComponent implements OnInit {
           this.product.id === el.id &&
           this.product.pSelect.code === el.pSelect.code
       );
-      console.log(producto)
       if (producto) {
         array.forEach((el: any) => {
           if (this.product.pSelect.code === el.pSelect.code) {
-            console.log('hola');
             el.val = el.val + this.product.val;
           }
         });

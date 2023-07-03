@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsModel } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../../../products/service/product.service';
+import { ProductService } from '../../../../services/products/product.service';
 import { PrimeIcons } from 'primeng/api';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';
 
 @Component({
   selector: 'app-crud-products',

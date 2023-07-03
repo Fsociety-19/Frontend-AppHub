@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, TitleStrategy } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { RegisterI } from 'src/app/Models/authentication/authmodel.interface';
-import { UsersService } from 'src/app/modules/services/users/users.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 
 

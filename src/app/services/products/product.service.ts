@@ -13,7 +13,7 @@ import {
   ProductsModel,
 } from 'src/app/Models/produts/productsModel';
 import { environment } from 'src/environments/environment';
-import { CategoryComponent } from '../category/category.component';
+import { CategoryComponent } from '../../modules/products/category/category.component';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +43,7 @@ export class ProductService {
   //PORDUCTS
   getProducts(): Observable<ProductsModel[]> {
     let headers = new HttpHeaders()
-    .append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjksInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY3MzA0NjA5Mn0.fVQdxXrDJIQluAbaXC7cb6XYX9fgwi6Pl24mk1pBJ1M')
+    //.append('Authorization', 'Bearer R5cCI6IkpXVCJ9.eyJzdWIiOjksInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY3MzA0NjA5Mn0.fVQdxXrDJIQluAbaXC7cb6XYX9fgwi6Pl24mk1pBJ1M')
     .append('Content-Type', 'application/json')
     return this.http.get<ProductsModel[]>(`${this.URL}products`, {
       headers: headers
