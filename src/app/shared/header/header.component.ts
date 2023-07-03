@@ -5,8 +5,8 @@ import { MegaMenuItem } from 'primeng/api/megamenuitem';
 import { debounceTime, fromEvent, map } from 'rxjs';
 import { BarndsModels, CategoriesModels } from 'src/app/Models/CategoriesModel';
 import { ProductsModel } from 'src/app/Models/produts/productsModel';
-import { ProductService } from '../../../services/products/product.service';
-import { UsersService } from '../../../services/users/users.service';
+import { ProductService } from '../../services/products/product.service';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-header',

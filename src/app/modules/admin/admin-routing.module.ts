@@ -7,7 +7,7 @@ import { EditClientsComponent } from './clientes/edit-clients/edit-clients.compo
 import { EditPresentationsComponent } from './products/edit-presentations/edit-presentations.component';
 import { EditProductsComponent } from './products/edit-products/edit-products.component';
 import { EditSubcategoryComponent } from './category/edit-subcategory/edit-subcategory.component';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from '../../pages/home/home.component';
 import { CrudCategoryComponent } from './category/crud-category/crud-category.component';
 import { CrudOrdenesComponent } from './ordenes/crud-ordenes/crud-ordenes.component';
 import { CrudPresentationsComponent } from './products/crud-presentations/crud-presentations.component';
@@ -16,7 +16,7 @@ import { CrudsClientsComponent } from './clientes/cruds-clients/cruds-clients.co
 import { OrdenDetailAdminComponent } from './ordenes/orden-detail-admin/orden-detail-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
-import { FooterComponent } from '../shared/footer/footer.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 const routes: Routes = [
   {

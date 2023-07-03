@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesModels } from 'src/app/Models/CategoriesModel';
-import { ProductService } from '../../../services/products/product.service';
-import { CarouselService } from '../../../services/carousel/carousel.service'
-import { CarouselI } from '../../../Models/carosuel/carousel'
+import { ProductService } from '../../services/products/product.service';
+import { CarouselService } from '../../services/carousel/carousel.service'
+import { CarouselI } from '../../Models/carosuel/carousel'
 
 @Component({
   selector: 'app-slider',

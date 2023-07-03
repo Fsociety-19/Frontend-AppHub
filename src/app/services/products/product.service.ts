@@ -13,7 +13,7 @@ import {
   ProductsModel,
 } from 'src/app/Models/produts/productsModel';
 import { environment } from 'src/environments/environment';
-import { CategoryComponent } from '../../modules/products/category/category.component';
+import { CategoryComponent } from '../../pages/products/category/category.component';
 
 @Injectable({
   providedIn: 'root',

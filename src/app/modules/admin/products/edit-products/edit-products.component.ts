@@ -1,4 +1,4 @@
-import { FooterComponent } from '../../../shared/footer/footer.component';
+import { FooterComponent } from '../../../../shared/footer/footer.component';
 import { Component, Input, OnInit, NgModule } from '@angular/core';
 import {
   ReactiveFormsModule,

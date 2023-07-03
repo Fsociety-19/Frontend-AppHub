@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ClasificationModel } from 'src/app/Models/CategoriesModel';
-import { ProductDetailComponent } from '../../../products/product-detail/product-detail.component';
+import { ProductDetailComponent } from '../../../../pages/products/product-detail/product-detail.component';
 import { ProductService } from '../../../../services/products/product.service';
 import { UsersService } from '../../../../services/users/users.service';
 import { ApiCrudService } from '../../../../services/cruds/api-cruds.service';

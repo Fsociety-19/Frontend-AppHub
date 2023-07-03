@@ -1,15 +1,15 @@
-import { UsersService } from '../../../services/users/users.service';
-import { ProductService } from './../../../services/products/product.service';
+import { UsersService } from '../../services/users/users.service';
+import { ProductService } from '../../services/products/product.service';
 import { MegaMenuItem } from 'primeng/api/megamenuitem';
 import {
   CategoriesModels,
   BarndsModels,
-} from './../../../Models/CategoriesModel';
-import { ProductsModel } from './../../../Models/produts/productsModel';
+} from '../../Models/CategoriesModel';
+import { ProductsModel } from '../../Models/produts/productsModel';
 import { Router } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ApiCrudService } from '../../../services/cruds/api-cruds.service';
+import { ApiCrudService } from '../../services/cruds/api-cruds.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
