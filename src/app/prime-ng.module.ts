@@ -27,7 +27,9 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
-
+import { AccordionModule } from 'primeng/accordion';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { ChipModule } from 'primeng/chip';
 
 
 @NgModule({
@@ -62,6 +64,9 @@ import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
     TriStateCheckboxModule,
     ConfirmDialogModule,
     PaginatorModule,
+    AccordionModule,
+    PanelMenuModule,
+    ChipModule
   ],
 })
 export class PrimeNGModule { }

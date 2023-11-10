@@ -21,8 +21,9 @@ p, h1, h2, h3, h4, h5 {
 }
 
 body{
-
-  overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 ::-webkit-scrollbar{
   width: 3.5px;

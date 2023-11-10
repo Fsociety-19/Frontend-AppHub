@@ -1,6 +1,7 @@
 .contenedor {
   margin: 20px;
 }
+
 body {
   font-family: "Nunito";
 }
@@ -44,12 +45,8 @@ body {
   animation: onda 2s ease-in-out infinite;
 }
 @media screen and (max-width: 992px) {
-  .main {
-    padding-top: 102px;
-  }
+
 }
 @media screen and (min-width: 992px) {
-  .main {
-    padding-top: 166px;
-  }
+
 }

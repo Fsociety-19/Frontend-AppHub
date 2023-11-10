@@ -11,7 +11,7 @@ import { productsCrudsI } from 'src/app/Models/Cruds/productsCrud.interface';
 export class ApiCrudService {
   constructor(private http: HttpClient) {}
 
-  private readonly url = environment.api;
+  private readonly url = environment.API_URL;
   headers = new HttpHeaders()
   .append('Content-Type', 'application/x-www-form-urlencoded')
   .append('Authorization', 'Bearer ' + localStorage.getItem('token'));

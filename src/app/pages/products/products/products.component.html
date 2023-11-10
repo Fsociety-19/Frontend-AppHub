@@ -1,33 +1,9 @@
 <div class="content" >
   <div class="container__2" >
     <p-toast></p-toast>
-    <div class="container-categories">
-      <span class="subtitle">Estas comprando para</span>
-      <p-selectButton [options]="categories" [(ngModel)]="categoriesSelect" optionLabel="name" optionValue="id"
-        class="categorieButtons" (onChange)="getSubcategorias()">
-        <ng-template let-category class="category-button" pTemplate="content">
-          <img class="image-cateorgy" alt="logo" [src]="category.image" style="object-fit: cover" />
-          <span class="category-name">{{ category.name }}</span>
-        </ng-template>
-      </p-selectButton>
-    </div>
-    <div class="subcategory">
-      <p-dropdown class="filtro" [options]="brands" [(ngModel)]="brandsSelect" optionLabel="name" optionValue="code"
-        placeholder="Marcas" (onChange)="filtroBrandClas()"></p-dropdown>
-    </div>
     <div class="container-products">
-      <p-dataView #dv [value]="productFilter"  [paginator]="true" [rows]="3" filterBy="name" [sortField]="sortField"
+      <p-dataView #dv [value]="productFilter"  [paginator]="true" [rows]="15" filterBy="name" [sortField]="sortField"
         [sortOrder]="sortOrder" layout="grid" emptyMessage="No hay resultados">
-        <ng-template pTemplate="header">
-          <div class="filtros">
-            <p-dropdown [options]="subcategories" [(ngModel)]="subcategoriesSelect" optionLabel="name" optionValue="id"
-              placeholder="Subcategorias..." (onChange)="getClasificacion()"
-              *ngIf="categoriesSelect !== 0"></p-dropdown>
-            <p-dropdown class="filtro" [options]="clasification" [(ngModel)]="clasificationSelect" optionLabel="name"
-              optionValue="id" placeholder="Clasificaciones" (onChange)="filtroBrandClas()"
-              *ngIf="subcategoriesSelect !== 0"></p-dropdown>
-          </div>
-        </ng-template>
         <ng-template let-product pTemplate="gridItem">
           <div class="container-card">
             <div class="product-grid-item card">

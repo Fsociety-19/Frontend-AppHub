@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminRoutingModule } from './modules/admin/admin-routing.module';
@@ -15,6 +14,8 @@ import { ChangePasswordComponent } from './pages/recovery-password/change-passwo
 import { RecoveryPasswordComponent } from './pages/recovery-password/recovery-password.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AuthGuard } from './guards/auth.guard';
+import { RedirectGuard } from './guards/redirect.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,26 +24,32 @@ const routes: Routes = [
   { path: 'category/:name', component: CategoryComponent },
   { path: 'cart', component: CartComponent },
   { path: 'forgot-password', component: RecoveryPasswordComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-up', component: SignUpComponent },
   {
-    path: 'Account_Verification',
+    path: 'change-password',
+    canActivate: [AuthGuard],
+    component: ChangePasswordComponent,
+  },
+
+  { path: 'login', canActivate: [RedirectGuard], component: LoginComponent },
+  { path: 'sign-in',canActivate: [RedirectGuard], component: SignInComponent },
+  { path: 'sign-up',canActivate: [RedirectGuard], component: SignUpComponent },
+  {
+    path: 'Account_Verification' ,canActivate: [RedirectGuard],
     component: AuthComponent,
   },
 
   //{ path: 'admin', redirectTo: '/crud-products', pathMatch: 'full' },
-  { path: 'orden', component: OrdenComponent },
-  { path: 'historial-compra', component: HistorialCompraComponent },
+  { path: 'orden', canActivate: [AuthGuard], component: OrdenComponent },
+  {
+    path: 'historial-compra',
+    canActivate: [AuthGuard],
+    component: HistorialCompraComponent,
+  },
   { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    AdminRoutingModule,
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), AdminRoutingModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

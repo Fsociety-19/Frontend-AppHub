@@ -13,7 +13,7 @@ import {
   ProductsModel,
 } from 'src/app/Models/produts/productsModel';
 import { environment } from 'src/environments/environment';
-import { CategoryComponent } from '../../pages/products/category/category.component';
+import { TokenService } from '../token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,16 +21,15 @@ import { CategoryComponent } from '../../pages/products/category/category.compon
 export class ProductService {
   headers = new HttpHeaders()
   .append('Content-Type', 'application/x-www-form-urlencoded')
-  .append('Authorization', 'Bearer ' + localStorage.getItem('token'));
 
   headersImg = new HttpHeaders()
   .append('Authorization', 'Bearer ' + localStorage.getItem('token'));
 
   private product: BehaviorSubject<any> = new BehaviorSubject<any>('0');
 
-  private readonly URL = environment.api + '/v1/store/';
+  private readonly URL = environment.API_URL + '/v1/store/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private tokenService:TokenService) {}
 
   get productId() {
     return this.product.asObservable();
@@ -41,14 +40,15 @@ export class ProductService {
   }
 
   //PORDUCTS
-  getProducts(): Observable<ProductsModel[]> {
+  getProducts(pet?:string | null,clasf?:string| null,brand?:string| null){
+    console.log(pet)
     let headers = new HttpHeaders()
-    //.append('Authorization', 'Bearer R5cCI6IkpXVCJ9.eyJzdWIiOjksInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY3MzA0NjA5Mn0.fVQdxXrDJIQluAbaXC7cb6XYX9fgwi6Pl24mk1pBJ1M')
     .append('Content-Type', 'application/json')
     return this.http.get<ProductsModel[]>(`${this.URL}products`, {
       headers: headers
     });
   }
+
 
   getProductById(id: number): Observable<ProductsModel> {
     return this.http.get<ProductsModel>(`${this.URL}products/${id}`);

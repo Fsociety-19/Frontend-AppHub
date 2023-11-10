@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'https://api-mundoanimal.cmc-software.com/api'
+  API_URL: 'http://ec2-54-196-21-228.compute-1.amazonaws.com:3000/api'
 };

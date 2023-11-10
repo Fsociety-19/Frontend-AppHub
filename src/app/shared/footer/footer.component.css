@@ -62,7 +62,7 @@
 }
 
 /* ------------ reset ------------ */
-
+footer{}
 *,
 *::before,
 *::after {
@@ -112,7 +112,7 @@ a {
 }
 
 .footer-forms .btn{
-  background: var(--greem);
+  background: #202f56;
   padding: 14px;
   color: var(--white);
   border-radius: 5px;

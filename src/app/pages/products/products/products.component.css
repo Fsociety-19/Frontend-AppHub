@@ -12,17 +12,9 @@
 :host::ng-deep .p-inputtext:enabled:hover {
   border-color: #EFF6FF;
 }
-.content{
-  width: 100%;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  flex-wrap: wrap;
 
-}
 .container__2{
-  width: 80%;
+  width:100%;
   display: flex;
   justify-content:center;
   flex-direction: column;
@@ -177,7 +169,7 @@
   align-self: center;
   padding-top: 1.2rem;
   padding-bottom: 2rem 0;
-  width: 97%;
+  width: 100%;
 }
 
 
@@ -374,7 +366,6 @@
   flex-direction: column;
   gap: 5px;
   position: relative;
-  width: 100%;
   margin: 0 !important;
   border: 0;
   width: 100%;

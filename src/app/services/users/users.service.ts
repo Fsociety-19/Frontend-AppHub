@@ -27,7 +27,7 @@ export class UsersService {
   constructor(private http: HttpClient) {
   }
 
-  private readonly url = environment.api;
+  private readonly url = environment.API_URL;
 
   login(form: LoginI): Observable<any> {
     return this.http.post<any>(this.url + '/v1/store/auth/login', form);

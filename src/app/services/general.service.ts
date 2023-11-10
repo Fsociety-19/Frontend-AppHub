@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GeneralService {
 
-  private readonly URL = environment.api+'api/v1/store/';
+  private readonly URL = environment.API_URL+'api/v1/store/';
 
   constructor(private http:HttpClient) { }
 
