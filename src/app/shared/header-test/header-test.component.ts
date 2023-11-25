@@ -72,8 +72,7 @@ export class HeaderTestComponent implements OnInit {
 
   ngOnInit(): void {
     this.info = ['Trabaja con nosotros', 'Contacto'];
-    this.getBrands();
-    this.getCategories();
+
 
     const token = localStorage.getItem('token');
     if (token) {
@@ -81,17 +80,7 @@ export class HeaderTestComponent implements OnInit {
       this.getSesion();
     }
 
-    fromEvent<Event>(this.searchI.nativeElement, 'keyup')
-      .pipe(
-        map((event: Event) => {
-          const evento = (event.target as HTMLInputElement).value;
-          return evento;
-        }),
-        debounceTime(700)
-      )
-      .subscribe((data: string) => {
-        this.autocomplete();
-      });
+
   }
 
   //autocomplete
@@ -155,43 +144,10 @@ export class HeaderTestComponent implements OnInit {
     window.location.href = '/products/detail/' + id;
   }
 
-  getProduts() {
-    this.productsService.getProducts().subscribe({
-      next: (ok) => {
-      },
-      error: (err) => {},
-    });
-  }
 
-  getCategories() {
-    this.productsService.getCategories().subscribe({
-      next: (ok) => {
-        this.categories = ok;
-      },
-      error: (err) => {},
-    });
-  }
 
-  getSubCategories() {
-    this.productsService.getSubcategories().subscribe({
-      next: (ok) => {
-        ok.forEach((el) => {
-          this.subcategories.push({ name: el.name, code: el.id });
-        });
-        this.subcategories = ok;
-      },
-      error: (err) => {},
-    });
-  }
 
-  getBrands() {
-    this.productsService.getBrands().subscribe({
-      next: (data) => {
-        this.marcas = data;
-      },
-      error: (err) => {},
-    });
-  }
+
 
   search(event: any) {
     this.productsService.getProductById(event.query).subscribe({

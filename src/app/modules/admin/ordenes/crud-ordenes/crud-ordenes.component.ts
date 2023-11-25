@@ -20,9 +20,7 @@ export class CrudOrdenesComponent implements OnInit {
   constructor( private userservice: UsersService) {}
 
   ngOnInit(): void {
-    if (!localStorage.getItem('token')){
-      window.location.href = "/"
-    }
+
     this.products.push(
       { numero: '1', name: 'nombre', valor: '10.000', estado: 'Activo' },
       { numero: '1', name: 'nombre', valor: '10.000', estado: 'Activo' },

@@ -1,0 +1,64 @@
+<div class="content-crud">
+  <p-table
+    #dt1
+    [value]="Apps | filter : filterApp"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    scrollHeight="500px"
+    dataKey="id"
+    [loading]="loading"
+    [rows]="4"
+    [showCurrentPageReport]="true"
+    [paginator]="true"
+    responsiveLayout="scroll"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            class="form-control"
+            pInputText
+            type="text"
+            name="filterApps"
+            [(ngModel)]="filterApp"
+            placeholder="Buscar...."
+          />
+        </span>
+        <!-- Boton Nuevo! -->
+        <button
+          pButton
+          icon="pi pi-plus-circle"
+          [routerLink]="'edit-products'"
+        ></button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let title of titles">{{ title }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-app>
+      <tr>
+        <td>{{ app.id }}</td>
+        <td style="width: 500px">{{ app.reason }}</td>
+        <td>{{ app.idAdmin }}</td>
+        <td>{{ app.hour }}</td>
+        <td>{{ app.date }}</td>
+        <td>{{ app.status }}</td>
+        <td>{{ app.detail }}</td>
+        <td>
+          <img
+            src="../../../../assets/edit.png"
+            [routerLink]="'see/' + app.id"
+            alt="i"
+          />
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No se encontró reservas</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

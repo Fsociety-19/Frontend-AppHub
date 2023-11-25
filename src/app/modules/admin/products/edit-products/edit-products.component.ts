@@ -277,6 +277,7 @@ export class EditProductsComponent implements OnInit {
         });
       },
       error: (err) => {
+        console.log(err)
         this.messageService.add({
           severity: 'error',
           summary: 'Error',

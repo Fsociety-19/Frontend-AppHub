@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&display=swap");
 
  :host {
 	 --delay: 0s;
@@ -46,7 +46,7 @@ button{
 	 flex-direction: column;
 	 flex-shrink: 0;
 	 align-items: center;
-	 padding: 117px 0 40px;
+	 padding: 130px 0 40px;
 	 animation: left 1s var(--delay) both;
 	 color: rgb(160, 160, 160);
 }
@@ -85,11 +85,8 @@ button{
 }
  .main-container {
 	 display: flex;
-	 flex-direction: column;
 	 flex-grow: 1;
-	 padding: 25px;
-	 overflow: auto;
-	 padding-left: 0;
+	 padding:130px 25px 25px 25px;
 }
  .header {
 	 background: #141834;

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { productsCrudsI } from 'src/app/Models/Cruds/productsCrud.interface';
-
 
 @Injectable({
   providedIn: 'root',

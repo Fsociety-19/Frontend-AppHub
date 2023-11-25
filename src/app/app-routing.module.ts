@@ -16,14 +16,13 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RedirectGuard } from './guards/redirect.guard';
+import { CreateAppointmentComponent } from './pages/students/appointments/create/create-appointment.component';
+import { ListAppointmentsComponent } from './pages/staff/appointments/list-appointments.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/detail/:id', component: ProductDetailComponent },
-  { path: 'category/:name', component: CategoryComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'forgot-password', component: RecoveryPasswordComponent },
+  { path: 'create-appointment', component:CreateAppointmentComponent},
+  { path: 'appointments-staff', component:ListAppointmentsComponent},
   {
     path: 'change-password',
     canActivate: [AuthGuard],

@@ -8,10 +8,12 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, ...arg: any): any {
     const resultProduct = [];
-    for (let product of value){
-      if (product.name.toLowerCase().indexOf(arg) > -1){
+    for (let app of value){
+      /*if (app.name.toLowerCase().indexOf(arg) > -1){
         resultProduct.push(product)
-      }
+      }*/
+      resultProduct.push(app)
+
     }
     return resultProduct;
   }

@@ -17,25 +17,19 @@ import { OrdenDetailAdminComponent } from './ordenes/orden-detail-admin/orden-de
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { ApplointmentComponent } from './applointments/applointment/applointment.component';
+import { ApplointmentsComponent } from './applointments/applointments.component';
 
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'f', component: CRUDProductsComponent },
-      { path: 'orders-admin', component: OrdenDetailAdminComponent },
-      { path: 'crud-orden', component: CrudOrdenesComponent },
-      { path: 'crud-products', component: CRUDProductsComponent },
-      { path: 'crud-clients', component: CrudsClientsComponent },
+      { path: '', component: ApplointmentsComponent },
+      { path: 'appointments', component: ApplointmentsComponent },
       {
-        path: 'crud-products/edit-products',
-        component: EditProductsComponent,
-      },
-      {
-        path: 'crud-clients/edit-clients/:id',
-        component: EditClientsComponent,
+        path: 'see/:id',
+        component: ApplointmentComponent,
       },
       {
         path: 'crud-categories/edit-category/:id',
@@ -57,8 +51,6 @@ const routes: Routes = [
         path: 'crud-products/crud-presentations/:id/edit-presentation/:code',
         component: EditPresentationsComponent,
       },
-      { path: 'crud-categories', component: CrudCategoryComponent },
-      { path: 'crud-orden', component: CrudOrdenesComponent },
       {
         path: 'crud-products/crud-presentations/:id',
         component: CrudPresentationsComponent,

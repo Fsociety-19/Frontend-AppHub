@@ -1,0 +1,21 @@
+<!-- Container -->
+<div class="container">
+  <p-toast></p-toast>
+  <!-- Box login -->
+  <div class="box-sign-up">
+    <h2>Reservar</h2>
+    <!-- inputs y boton --> <!--(ngSubmit)="registro()"-->
+    <form [formGroup]="formAppointment"(ngSubmit)="saveAPP()">
+      <span class="p-float-label">
+        <input id="float-name" type="text" required formControlName="reason" pInputText />
+        <label for="float-name">Motivo</label>
+      </span>
+      <span class="p-float-label">
+        <textarea id="float-last" type="text" pInputTextarea formControlName="detail" required></textarea>
+        <label for="float-last">Detalles</label>
+      </span>
+                                       <!--[disabled]="!formRegistro.valid"-->
+      <button pButton label="Enviar" class="btnsignup" type="submit" [disabled]="false"></button>
+    </form>
+  </div>
+</div>

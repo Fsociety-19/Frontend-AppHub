@@ -22,6 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { ListComponent } from './ordenes/list/list.component';
 import { PrimeNGModule } from 'src/app/prime-ng.module';
+import { ApplointmentComponent } from './applointments/applointment/applointment.component';
+import { ApplointmentsComponent } from './applointments/applointments.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { PrimeNGModule } from 'src/app/prime-ng.module';
     AdminComponent,
     FilterPipe,
     ListComponent,
+    ApplointmentComponent,
+    ApplointmentsComponent,
   ],
   imports: [
     BrowserModule,

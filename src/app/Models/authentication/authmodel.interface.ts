@@ -22,4 +22,8 @@ export interface AuthI {
   extendsI: string;
 }
 
+export interface AppointmentI {
+  reason:string;
+  detail: string;
+}
 

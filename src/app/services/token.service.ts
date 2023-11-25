@@ -8,12 +8,12 @@ export class TokenService {
   constructor() {}
 
   saveToken(token: string) {
-    setCookie('token-avma',token,{expires:365,path:'/'})
+    setCookie('token-apphub',token,{expires:365,path:'/'})
     return token;
   }
 
   getToken(){
-    const token = getCookie('token-avma')
+    const token = getCookie('token-apphub')
     return token;
   }
   removeToken(){

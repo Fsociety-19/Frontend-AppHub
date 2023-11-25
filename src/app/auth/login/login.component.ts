@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
   ) {
     this.formLogin = formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -38,13 +38,21 @@ export class LoginComponent implements OnInit {
   doLogin() {
     this.status='loading';
     this.authService
-      .login(this.formLogin.value.email, this.formLogin.value.password)
+      .login(this.formLogin.value.username, this.formLogin.value.password)
       .subscribe({
-        next: () => {
+        next: (data) => {
           this.status='success';
-          this.router.navigate(['/'])
+          if (data.rol==1){
+              //this.router.navigate(['/admin'])
+              window.location.href = '/admin';
+          }else if(data.rol==2){
+
+          }else if(data.rol=3){
+            this.router.navigate(['/create-appointment'])
+          }
         },
         error: (err) => {
+
           this.status='failed';
           switch (err.status) {
             case 401:
@@ -54,7 +62,7 @@ export class LoginComponent implements OnInit {
               this.show404();
               break;
             case 403:
-              this.show403();
+              this.showError();
               break;
             case 400:
               this.show400();
@@ -81,7 +89,9 @@ export class LoginComponent implements OnInit {
         window.location.href = '';
       },
       error: (err) => {
+        console.log(err)
         switch (err.status) {
+
           case 401:
             this.show401();
             break;
@@ -89,7 +99,7 @@ export class LoginComponent implements OnInit {
             this.show404();
             break;
           case 403:
-            this.show403();
+            this.showError();
             break;
           case 400:
             this.show400();

@@ -7,6 +7,8 @@ import { HistorialCompraComponent } from './historial-compra/historial-compra.co
 import { OrdenComponent } from './orden/orden.component';
 import { ChangePasswordComponent } from './recovery-password/change-password/change-password.component';
 import { PrimeNGModule } from '../prime-ng.module';
+import { CreateAppointmentComponent } from './students/appointments/create/create-appointment.component';
+import { ListAppointmentsComponent } from './staff/appointments/list-appointments.component';
 
 
 @NgModule({
@@ -15,6 +17,9 @@ import { PrimeNGModule } from '../prime-ng.module';
     OrdenComponent,
     HistorialCompraComponent,
     ChangePasswordComponent,
+    CreateAppointmentComponent,
+    ListAppointmentsComponent,
+
   ],
   imports: [
     CommonModule,

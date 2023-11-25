@@ -7,8 +7,8 @@
     <!-- inputs y boton -->
     <form action="" [formGroup]="formLogin" (ngSubmit)="doLogin()">
       <span class="p-float-label">
-        <input #inUs id="float-username" type="email"  formControlName="email" required pInputText />
-        <label for="float-username">Email</label>
+        <input #inUs id="float-username" type="text"  formControlName="username" required pInputText />
+        <label for="float-username">Usuario</label>
       </span>
       <span class="p-float-label">
         <input #inps id="float-password" type="password" formControlName="password" required pInputText />

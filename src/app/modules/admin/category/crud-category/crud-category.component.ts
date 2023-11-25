@@ -54,9 +54,6 @@ export class CrudCategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!localStorage.getItem('token')){
-      window.location.href = "/"
-    }
 
     this.products.push(
       {
