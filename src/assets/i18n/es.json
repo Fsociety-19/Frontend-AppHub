@@ -1,0 +1,43 @@
+{
+  "hello.world": "¡Hola mundo!",
+  "hello.custom": "¡Hola {value}!",
+  "spanish": "Español",
+  "english": "Inglés",
+
+
+  "nav.services":"Servicios",
+  "nav.projects":"Proyectos",
+  "nav.language":"Idioma",
+
+
+  "home.service":"SERVICIOS",
+  "industrial.area":"ÁREA INDUSTRIAL",
+  "project.management.and.construction.oversight":"INTERVENTORIA DE PROYECTOS Y OBRAS",
+  "pmo.project.planning.and.project.control":"PMO - PLANTEAMIENTO Y CONTROL DE PROYECTOS",
+
+
+
+  "real.estate.services":"SERVICIOS INMOBILIARIOS",
+  "real.estate.developer":"DESARROLLADOR INMOBILIARIO",
+  "flipping":"FLIPING",
+  "real.estate.management.and.marketing":"ADMINISTRACION Y COMERCIALIZACION DE BIENES INMUEBLES",
+
+
+  "about.us":"¿QUIENES SOMOS?",
+  "about.us.detail":"JL Proyectos, viene prestando servicios profesionales en gestión de proyectos industriales, Diseños y obras Arquitectónicas, civil, electromecánicas y control.",
+  "about.us.detailtwo":"Ofrecemos nuestros servicios, poniendo a disposición de nuestros clientes, profesionales y técnicos altamente especializados y de gran experiencia.",
+
+  "partners":"SOCIOS ALIADOS",
+  "projects":"PROYECTOS",
+  "projects.info":"Esta es una muestra de nuestra amplio portafolio de proyectos que hemos construidos a lo largo de estos 19 años",
+  "clients":"CLIENTES",
+
+  "contact_us":"CONTACTANOS AHORA",
+  "contact_us.detail":"Si te has interesado por alguno de nuestros servicios y quieres obtener más información en este apartado te solicitaremos unos datos y uno de nuestros funcionarios te contactará.",
+  "get.a.quote":"COTIZAR",
+
+
+  "location":"UBICACIÓN",
+
+  "networks":"REDES"
+}

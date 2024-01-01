@@ -1,8 +1,113 @@
-<div class="content">
-  <!-- Container carousel-->
-  <img class="img-home" src="../../../assets/home/appointment.jpg" alt="">
-  <div class="text-home-container">
-    <p>
-      Descubre cómo reservar asesorías con admisiones de manera sencilla y conoce a nuestro equipo de expertos. ¡Explora todas las oportunidades que ofrecemos!</p>
-  </div>
-</div>
+<main>
+  <section class="services">
+      <div class="services__content">
+        <img  src="../../../assets/home/background.jpg" alt="" >
+        <div class="degradeg">
+
+        </div>
+        <div class="services__content_info">
+          <div class="services__content_info_title">
+            <span>{{'home.service'  }}</span>
+          </div>
+          <div class="services__content_info_links">
+            <button routerLink="services/industrial">
+              <p>{{'industrial.area'}}</p>
+            </button>
+            <button
+            [routerLink]="'services/r-estate'" >
+              <p>{{'real.estate.services'}}</p>
+            </button>
+          </div>
+        </div>
+        <div class="chevron-up">
+          <i class="pi pi-angle-double-up"></i>
+        </div>
+
+      </div>
+      <div class="degradeg-dark">
+      </div>
+  </section>
+  <section class="about">
+      <div class="about__content">
+        <div class="about__content_title">
+          <h1>{{"about.us"}}</h1>
+        </div>
+        <div class="about__content_detail">
+          <p>{{"about.us.detail"}}</p>
+          <p>{{"about.us.detailtwo"}}</p>
+        </div>
+      </div>
+  </section>
+  <section class="partners_and_clients">
+    <div class="partners__container">
+      <div class="partners__container_title">
+        <h1>{{"partners"}}</h1>
+      </div>
+      <div class="partners__container_carousel">
+        <div class="partners_items">
+          <div class="item"><img src="./../../../assets/home/partners/partner_one.png"  alt=""></div>
+          <div class="item"><img src="./../../../assets/home/partners/partnet_two.png"  alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="projects_info__container">
+      <div class="projects_info__detail">
+        <div class="projects_info__detail_title">
+          <h1>{{'projects' }}</h1>
+        </div>
+        <div class="projects_info__detail_info">
+          <p>{{'projects.info'}}</p>
+        </div>
+        <div class="projects_info__detail_btn">
+          <button type="button">
+            <p>
+              {{'industrial.area'}}
+            </p>
+          </button>
+          <button type="button">
+            <p>
+              {{'real.estate.services'}}
+            </p>
+          </button>
+        </div>
+      </div>
+      <div class="picture">
+        <img src="./../../../assets/real_state/realstate4.jpg"  alt="">
+      </div>
+    </div>
+    <div class="partners__container">
+      <div class="partners__container_title">
+        <h1>{{"clients"}}</h1>
+      </div>
+      <div class="partners__container_carousel">
+        <div class="partners_items">
+          <div class="item"><img src="./../../../assets/home/clients/client7.png"  alt=""></div>
+          <div class="item"><img src="./../../../assets/home/clients/client1.png"  alt=""></div>
+          <div class="item"><img src="./../../../assets/home/clients/client3.png"  alt=""></div>
+          <div class="item"><img src="./../../../assets/home/clients/client6.png"  alt=""></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contact_us_now">
+    <div class="contact_us_now__content">
+      <div class="contact_us_now__content_title">
+        <h1>{{"contact_us"}}</h1>
+      </div>
+      <div class="contact_us_now__content_detail">
+        <p>{{"contact_us.detail"}}</p>
+      </div>
+      <button class="contact_us_now_btn">
+        <p>{{"get.a.quote"}}</p>
+      </button>
+    </div>
+  </section>
+  <!--
+  <section class="location_container">
+    <p>{{'location' }}</p>
+    <div class="location_drop">
+      <p-dropdown [options]="locations" [(ngModel)]="selectedLocation" optionLabel="name" placeholder="Select a Office" (onChange)="onDropdownChange($event)"></p-dropdown>
+    </div>
+    <iframe [src]="selectedLocation.code | safe" class="map"   style="border:0;" allowfullscreen=""  referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>-->
+  </main>

@@ -1,0 +1,49 @@
+{
+  "hello.world": "Hello world!",
+  "hello.custom": "Hello {value}!",
+  "spanish": "Spanish",
+  "english": "English",
+
+
+  "nav.services":"Services",
+  "nav.projects":"Projects",
+  "nav.language":"Language",
+
+
+  "home.service":"SERVICES",
+  "industrial.area":"INDUSTRIAL AREA",
+  "project.management.and.construction.oversight":"PROJECT MANAGEMENT AND CONSTRUCTION OVERSIGHT",
+  "pmo.project.planning.and.project.control":"PMO - PROJECT PLANNING AND PROJECT CONTROL",
+
+
+
+  "real.estate.services":"REAL ESTATE SERVICES",
+  "real.estate.developer":"REAL ESTATE DEVELOPER",
+  "flipping":"FLIPING",
+  "real.estate.management.and.marketing":"REAL ESTATE MANAGEMENT AND MARKETING",
+
+
+
+
+  "about.us":"ABOUT US",
+  "about.us.detail":"JL Proyectos has been providing professional services in industrial project management, architectural designs, and civil, electromechanical, and control works.",
+  "about.us.detailtwo":"We offer our services by making available to our clients highly specialized professionals and technicians with extensive experience.",
+
+
+
+  "partners":"PARTNERS",
+  "projects":"PROJECTS",
+  "projects.info":"This is a sample of our extensive portfolio of projects that we have built over these 19 years.",
+  "clients":"CLIENTS",
+
+  "contact_us":"CONTACT US NOW",
+  "contact_us.detail":"If you are interested in any of our services and would like more information, in this section, we will request some details, and one of our representatives will contact you.",
+  "get.a.quote":"GET A QUOTE",
+
+
+  "location":"LOCATION",
+
+
+  "networks":"NETWORKS"
+
+}

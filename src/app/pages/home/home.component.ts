@@ -4,9 +4,7 @@ import {
   ViewChild,
   OnInit,
 } from '@angular/core';
-import { CarouselI } from '../../Models/carosuel/carousel';
 import { MenuItem } from 'primeng/api';
-import { ChipsModel } from 'src/app/Models/chips.interface';
 import { ActivatedRoute,Params  } from '@angular/router';
 
 @Component({

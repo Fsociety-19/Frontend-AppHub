@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderTestComponent } from './header-test/header-test.component';
-import { SliderComponent } from './slider/slider.component';
 import { PrimeIcons } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -36,7 +35,6 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 @NgModule({
   declarations: [
     FooterComponent,
-    SliderComponent,
     HeaderTestComponent,
 
   ],
@@ -75,7 +73,6 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
   providers: [PrimeIcons],
   exports:[
     FooterComponent,
-    SliderComponent,
     HeaderTestComponent,
   ],
 

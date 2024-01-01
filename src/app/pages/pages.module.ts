@@ -1,24 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
 import { PrimeIcons } from 'primeng/api';
 import { AppComponent } from '../app.component';
-import { HistorialCompraComponent } from './historial-compra/historial-compra.component';
-import { OrdenComponent } from './orden/orden.component';
-import { ChangePasswordComponent } from './recovery-password/change-password/change-password.component';
 import { PrimeNGModule } from '../prime-ng.module';
-import { CreateAppointmentComponent } from './students/appointments/create/create-appointment.component';
-import { ListAppointmentsComponent } from './staff/appointments/list-appointments.component';
-
 
 @NgModule({
   declarations: [
-    RecoveryPasswordComponent,
-    OrdenComponent,
-    HistorialCompraComponent,
-    ChangePasswordComponent,
-    CreateAppointmentComponent,
-    ListAppointmentsComponent,
+
 
   ],
   imports: [
@@ -26,10 +14,6 @@ import { ListAppointmentsComponent } from './staff/appointments/list-appointment
     PrimeNGModule
   ],
   exports:[
-    RecoveryPasswordComponent,
-    OrdenComponent,
-    HistorialCompraComponent,
-    ChangePasswordComponent,
   ],
   providers: [PrimeIcons],
   bootstrap: [AppComponent]
